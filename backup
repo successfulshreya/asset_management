@@ -1,0 +1,2173 @@
+//dashboard 
+<head>
+    <!-- Custom fonts for this template-->
+    <link href="assetss/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="assetss/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+      <?php
+include("config.php");
+
+?>
+<!-- dashboard -->
+<?php include ("assetss/index.html");?>
+
+<body>
+ <!-- Bootstrap core JavaScript-->
+    <script src="assetss/vendor/jquery/jquery.min.js"></script>
+    <script src="assetss/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assetss/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="assetss/js/sb-admin-2.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+//index.php
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="assetss/index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">SMEL Admin</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="assetss/index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span> Assets Components</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="Assets.html">Assets
+
+
+                            
+                        </a>
+                        <a class="collapse-item" href="Software.html">Software</a>
+                          <a class="collapse-item" href="CMDM.html">CMDM</a>
+                            <a class="collapse-item" href="Admin.html">admin</a>
+                              <a class="collapse-item" href="Reports.html">report</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Utilities</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pages</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" href="admin_login.php">Login</a>
+                        <a class="collapse-item" href="register.html">Register</a>
+                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="assetss/charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Charts</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="assetss/tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <img class="sidebar-card-illustration mb-2" src="assetss/img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="asetss/img/undraw_profile_3.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle"
+                                    src="assetss/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- total assets(Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Total Assets</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">4000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- software (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Software</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--report (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Reports
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                PR and contracts</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Assets Overview</h6>
+                                    
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                 
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <p> All assets in store <p><br>
+                                         <p> All Assigned assets in use :<p><br>
+                                         <p>unAssigned assets:<p><br>
+                                         <p>All assets in repair <p><br>
+                                            <p> Loan expired assets<p><br>
+                                                <br>
+                                        <canvas id="myAreaChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Sources</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Direct
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Social
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Referral
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Project Card Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">DATA</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold">IT ASSETS <span
+                                            class="float-right">20%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">NON-IT ASSETS <span
+                                            class="float-right">40%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">SOFTWARE<span
+                                            class="float-right">60%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar" role="progressbar" style="width: 60%"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">ASSET UNUSED <span
+                                            class="float-right">80%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Account Setup <span
+                                            class="float-right">Complete!</span></h4>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+//asset_list.php
+
+<?php include 'fetch_assets.php';?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSETS LIST</title>
+</head>
+
+<body>
+    <h2> assets inventory </h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>SI No</th>
+                <th>User Name</th>
+                <th>Destination </th>
+                <th>Departmaent</th>
+                <th>Employee ID</th>
+                <th>E-mail ID</th>
+                <th>Mobile Number </th>
+                <th>location</th>
+                <th>sub-location</th>
+                <th>MAC ID</th>
+                <th>IP Address</th>
+                <th>Static/DHCP</th>
+                <th>Desktop/laptop/Printer/monitor</th>
+                <th>CPU</th>
+                <th>monitor</th>
+                <th>PrINTER/Scanner</th>
+                <th>Keyboard</th>
+                <th>Mouse</th>
+                <th>Laptop Power Adaptor</th>
+                <th>Date of issue</th>
+                <th>PO</th>
+                <th>Vendor name</th>
+                <th>Warranty</th>
+                <th>AMC</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+</html>
+
+
+//edit_asset.php
+
+<?php
+include 'config.php';
+
+$id = null;
+$row = null;
+
+if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
+    $id = (int)$_GET['id'];
+    $stmt = mysqli_prepare($conn, "SELECT * FROM assets WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    if ($result && mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+    } else {
+        header("Location: view_assets.php");
+        exit;
+    }
+    mysqli_stmt_close($stmt);
+} else {
+    header("Location: view_assets.php");
+    exit;
+}
+?>
+
+//update_asset.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Asset #<?= htmlspecialchars($row['id']) ?></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+  <h2>Edit Asset #<?= htmlspecialchars($row['id']) ?></h2>
+
+  <form action="update_asset.php" method="POST" class="mt-4">
+    <input type="hidden" name="id" value="<?= htmlspecialchars($row['id']) ?>">
+
+    <!-- Tabs Navigation -->
+    <ul class="nav nav-tabs" id="assetTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="user-tab" data-bs-toggle="tab" data-bs-target="#user" type="button" role="tab">User Info</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs" type="button" role="tab">System Specs</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="peripherals-tab" data-bs-toggle="tab" data-bs-target="#peripherals" type="button" role="tab">Peripherals</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="issue-tab" data-bs-toggle="tab" data-bs-target="#issue" type="button" role="tab">Issuance & Vendor</button>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-3">
+      <!-- User Info -->
+      <div class="tab-pane fade show active" id="user" role="tabpanel">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">User Name</label>
+            <input required name="user_name" class="form-control" value="<?= htmlspecialchars($row['user_name']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Designation (Category)</label>
+            <input name="designation" class="form-control" value="<?= htmlspecialchars($row['designation']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Department</label>
+            <input name="department" class="form-control" value="<?= htmlspecialchars($row['department']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Employee ID</label>
+            <input required name="employee_id" class="form-control" value="<?= htmlspecialchars($row['employee_id']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Email ID</label>
+            <input type="email" name="email_id" class="form-control" value="<?= htmlspecialchars($row['email_id']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Mobile Number</label>
+            <input name="mobile_number" class="form-control" value="<?= htmlspecialchars($row['mobile_number']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Location</label>
+            <input name="location" class="form-control" value="<?= htmlspecialchars($row['location']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Sub Location</label>
+            <input name="sub_location" class="form-control" value="<?= htmlspecialchars($row['sub_location']) ?>">
+          </div>
+        </div>
+      </div>
+
+      <!-- System Specs -->
+      <div class="tab-pane fade" id="specs" role="tabpanel">
+        <div class="accordion" id="specsAccordion">
+          <!-- Network & Device -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingNetwork">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseNetwork" aria-expanded="true">
+                Network & Device
+              </button>
+            </h2>
+            <div id="collapseNetwork" class="accordion-collapse collapse show" data-bs-parent="#specsAccordion">
+              <div class="accordion-body">
+                <div class="row g-3">
+                  <div class="col-md-6"><label>MAC ID</label><input name="mac_id" class="form-control" value="<?= htmlspecialchars($row['mac_id']) ?>"></div>
+                  <div class="col-md-6"><label>IP Address</label><input name="ip_address" class="form-control" value="<?= htmlspecialchars($row['ip_address']) ?>"></div>
+                  <div class="col-md-6"><label>Network Type</label><input name="network_type" class="form-control" value="<?= htmlspecialchars($row['network_type']) ?>"></div>
+                  <div class="col-md-6"><label>Device Type</label><input name="device_type" class="form-control" value="<?= htmlspecialchars($row['device_type']) ?>"></div>
+                  <div class="col-md-6"><label>PC Name</label><input name="pc_name" class="form-control" value="<?= htmlspecialchars($row['pc_name']) ?>"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- CPU & Memory -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCPU">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseCPU" aria-expanded="false">
+                CPU & Memory
+              </button>
+            </h2>
+            <div id="collapseCPU" class="accordion-collapse collapse" data-bs-parent="#specsAccordion">
+              <div class="accordion-body">
+                <div class="row g-3">
+                  <div class="col-md-6"><label>CPU Make</label><input name="cpu_make" class="form-control" value="<?= htmlspecialchars($row['cpu_make']) ?>"></div>
+                  <div class="col-md-6"><label>CPU Model</label><input name="cpu_model" class="form-control" value="<?= htmlspecialchars($row['cpu_model']) ?>"></div>
+                  <div class="col-md-6"><label>CPU Serial Number</label><input name="cpu_serial_number" class="form-control" value="<?= htmlspecialchars($row['cpu_serial_number']) ?>"></div>
+                  <div class="col-md-6"><label>Processor</label><input name="Processor" class="form-control" value="<?= htmlspecialchars($row['Processor']) ?>"></div>
+                  <div class="col-md-4"><label>Generation</label><input name="Gen" class="form-control" value="<?= htmlspecialchars($row['Gen']) ?>"></div>
+                  <div class="col-md-4"><label>RAM</label><input name="RAM" class="form-control" value="<?= htmlspecialchars($row['RAM']) ?>"></div>
+                  <div class="col-md-4"><label>Bit</label><input name="bit" class="form-control" value="<?= htmlspecialchars($row['bit']) ?>"></div>
+                  <div class="col-md-6"><label>OS</label><input name="os" class="form-control" value="<?= htmlspecialchars($row['os']) ?>"></div>
+                  <div class="col-md-6"><label>HDD</label><input name="HDD" class="form-control" value="<?= htmlspecialchars($row['HDD']) ?>"></div>
+                  <div class="col-md-6"><label>SSD</label><input name="SDD" class="form-control" value="<?= htmlspecialchars($row['SDD']) ?>"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- monitor Specs -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingmonitor">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapsemonitor" aria-expanded="false">
+                monitor Details
+              </button>
+            </h2>
+            <div id="collapsemonitor" class="accordion-collapse collapse" data-bs-parent="#specsAccordion">
+              <div class="accordion-body">
+                <div class="row g-3">
+                  <div class="col-md-6"><label>monitor Make</label><input name="monitor" class="form-control" value="<?= htmlspecialchars($row['monitor']) ?>"></div>
+                  <div class="col-md-6"><label>monitor Model</label><input name="monitor_model" class="form-control" value="<?= htmlspecialchars($row['monitor_model']) ?>"></div>
+                  <div class="col-md-6"><label>monitor Serial Number</label><input name="monitor_serial_number" class="form-control" value="<?= htmlspecialchars($row['monitor_serial_number']) ?>"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Peripherals -->
+      <div class="tab-pane fade" id="peripherals" role="tabpanel">
+        <div class="accordion" id="periAccordion">
+          <?php foreach (['printer_scanner', 'keyboard', 'mouse'] as $type): ?>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading<?= ucfirst($type) ?>">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= ucfirst($type) ?>">
+                <?= ucfirst(str_replace('_', ' ', $type)) ?>
+              </button>
+            </h2>
+            <div id="collapse<?= ucfirst($type) ?>" class="accordion-collapse collapse show" data-bs-parent="#periAccordion">
+              <div class="accordion-body">
+                <div class="row g-3">
+                  <div class="col-md-4"><label><?= ucfirst(str_replace('_',' ', $type)) ?> Type</label><input name="<?= $type ?>_Type" class="form-control" value="<?= htmlspecialchars($row[$type.'_Type']) ?>"></div>
+                  <div class="col-md-4"><label>Make</label><input name="<?= $type ?>_make" class="form-control" value="<?= htmlspecialchars($row[$type.'_make']) ?>"></div>
+                  <div class="col-md-4"><label>Model</label><input name="<?= $type ?>_model" class="form-control" value="<?= htmlspecialchars($row[$type.'_model']) ?>"></div>
+                  <div class="col-md-6"><label>Serial Number</label><input name="<?= $type ?>_serial_number" class="form-control" value="<?= htmlspecialchars($row[$type.'_serial_number']) ?>"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php endforeach; ?>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingAdaptor">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdaptor">
+                Adaptor
+              </button>
+            </h2>
+            <div id="collapseAdaptor" class="accordion-collapse collapse" data-bs-parent="#periAccordion">
+              <div class="accordion-body">
+                <div class="row">
+                  <div class="col-md-6"><label>Laptop Adaptor Serial Number</label><input name="laptop_adaptor_serial_number" class="form-control" value="<?= htmlspecialchars($row['laptop_adaptor_serial_number']) ?>"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issuance & Vendor Info -->
+      <div class="tab-pane fade" id="issue" role="tabpanel">
+        <div class="row g-3">
+          <div class="col-md-6"><label>Date of Issue</label><input type="date" name="date_of_issue" class="form-control" value="<?= htmlspecialchars($row['date_of_issue']) ?>"></div>
+          <div class="col-md-6"><label>PO Number</label><input name="po_number" class="form-control" value="<?= htmlspecialchars($row['po_number']) ?>"></div>
+          <div class="col-md-6"><label>Vendor Name</label><input name="vendor_name" class="form-control" value="<?= htmlspecialchars($row['vendor_name']) ?>"></div>
+          <div class="col-md-6"><label>Warranty Status</label><input name="warranty_status" class="form-control" value="<?= htmlspecialchars($row['warranty_status']) ?>"></div>
+          <div class="col-md-6"><label>AMC (Annual Maintenance Contract)</label><input name="AMC" class="form-control" value="<?= htmlspecialchars($row['AMC']) ?>"></div>
+          <div class="col-md-6"><label>Created At</label><input name="created_at" class="form-control" value="<?= htmlspecialchars($row['created_at']) ?>"></div>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4">Update Asset</button>
+    <a href="view_assets.php" class="btn btn-secondary mt-4 ms-2">Cancel</a>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+//UPDATE_ASSET.php
+ <!-- //this file will recieve the edited or updatedd form data from edit_asset.php file and the update in the database  -->
+
+ <?php
+ include'config.php';
+ if($_SERVER['REQUEST_METHOD']=='POST'){         //checking if form was submitted via post
+    $id = $_POST['id'];  //get all the submitted data from the form
+    $user_name = $_POST['user_name'];
+    $designation = $_POST['designation'];
+    $department = $_POST['department'];
+    $employee_id = $_POST['employee_id'];
+    $email_id = $_POST['email_id'];
+    $mobile_number = $_POST['mobile_number'];
+    $created_at = $_POST['created_at'];
+
+
+    $query="UPDATE assets SET id = '$id', 
+    user_name = '$user_name',
+    designation = '$designation',
+    department = '$department',
+    employee_id = '$employee_id',
+    email_id = '$email_id',
+    mobile_number = '$mobile_number',
+    created_at = '$created_at'
+    WHERE id = $id";
+
+     if(mysqli_query($conn,$query)){
+     echo"Asset updated successfully";
+     header("Location: assets_list.php");
+     exit;
+ }else{
+    echo "error:".mysqli_error($conn);
+}
+}
+ 
+?>
+
+
+ADD_ASSET.php
+<?php
+include './config.php';
+session_start();
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+$id = $_POST['id'];
+$user_name = $_POST['user_name'];
+$designation = $_POST['category'];
+$department = $_POST['department'];
+$employee_id = $_POST['employee_id'];
+$email_id = $_POST['email_id'];
+$mobile_number = $_POST['mobile_number'];
+$location = $_POST['location'];
+$sub_location = $_POST['sub_location'];
+
+// Additional fields as per your database structure:
+$mac_id = $_POST['mac_id'];
+$ip_address = $_POST['ip_address'];
+$network_type = $_POST['network_type'];
+$device_type = $_POST['device_type'];
+$pc_name = $_POST['pc_name'];
+$cpu_make = $_POST['cpu_make'];
+$cpu_model = $_POST['cpu_model'];
+$cpu_serial_number = $_POST['cpu_serial_number'];
+$Processor = $_POST['Processor'];
+$Gen = $_POST['Gen'];
+$RAM = $_POST['RAM'];
+$bit = $_POST['bit'];
+$os = $_POST['os'];
+$HDD = $_POST['HDD'];
+$SDD = $_POST['SDD'];
+$monitor = $_POST['monitor'];
+$monitor_model = $_POST['monitor_model'];
+$monitor_serial_number = $_POST['monitor_serial_number'];
+$printer_scanner_Type = $_POST['printer_scanner_Type'];
+$printer_scanner_make = $_POST['printer_scanner_make'];
+$printer_scanner_model = $_POST['printer_scanner_model'];
+$printer_scanner_serial_number = $_POST['printer_scanner_serial_number'];
+$keyboard_make = $_POST['keyboard_make'];
+$keyboard_model = $_POST['keyboard_model'];
+$keyboard_serial_number = $_POST['keyboard_serial_number'];
+$mouse_make = $_POST['mouse_make'];
+$mouse_model = $_POST['mouse_model'];
+$mouse_serial_number = $_POST['mouse_serial_number'];
+$laptop_adaptor_serial_number = $_POST['laptop_adaptor_serial_number'];
+$date_of_issue = $_POST['date_of_issue'];
+$po_number = $_POST['po_number'];
+$vendor_name = $_POST['vendor_name'];
+$warranty_status = $_POST['warranty_status'];
+$AMC = $_POST['AMC'];
+$created_at = $_POST['created_at']; // Usually auto-generated in DB, but included here if being passed
+
+
+  $sql = "
+INSERT INTO assets (
+    id, user_name, designation, department, employee_id, email_id,
+    mobile_number, location, sub_location, mac_id, ip_address, network_type,
+    device_type, pc_name, cpu_make, cpu_model, cpu_serial_number, Processor,
+    Gen, RAM, bit, os, HDD, SDD, monitor, monitor_model,
+    monitor_serial_number, printer_scanner_Type, printer_scanner_make,
+    printer_scanner_model, printer_scanner_serial_number, keyboard_make,
+    keyboard_model, keyboard_serial_number, mouse_make, mouse_model,
+    mouse_serial_number, laptop_adaptor_serial_number, date_of_issue,
+    po_number, vendor_name, warranty_status, AMC, created_at
+) VALUES (
+    '$id', '$user_name', '$designation', '$department', '$employee_id', '$email_id',
+    '$mobile_number', '$location', '$sub_location', '$mac_id', '$ip_address', '$network_type',
+    '$device_type', '$pc_name', '$cpu_make', '$cpu_model', '$cpu_serial_number', '$Processor',
+    '$Gen', '$RAM', '$bit', '$os', '$HDD', '$SDD', '$monitor', '$monitor_model',
+    '$monitor_serial_number', '$printer_scanner_Type', '$printer_scanner_make',
+    '$printer_scanner_model', '$printer_scanner_serial_number', '$keyboard_make',
+    '$keyboard_model', '$keyboard_serial_number', '$mouse_make', '$mouse_model',
+    '$mouse_serial_number', '$laptop_adaptor_serial_number', '$date_of_issue',
+    '$po_number', '$vendor_name', '$warranty_status', '$AMC', '$created_at'
+)";
+
+    if (mysqli_query($conn,$sql)){
+        echo "<H3>Asset added successfully!! :) </H3>";
+    } else {
+        echo "error: " .mysqli_error($conn);
+    }
+
+//     var_dump($_POST);
+// exit;
+}
+
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Asset</title>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<h2 style="margin-left:7rem;  margin-top:2rem" >Add New Asset</h2>
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<form action="add_asset.php" method="POST" class="container my-5">
+  <!-- User Info Section -->
+  <div class="card mb-4 p-4">
+    <h5>User Information</h5>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="id" class="form-label">Asset ID</label>
+        <input type="text" name="id" id="id" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="user_name" class="form-label">User Name</label>
+        <input type="text" name="user_name" id="user_name" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="category" class="form-label">Designation (Category)</label>
+        <input type="text" name="category" id="category" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="department" class="form-label">Department</label>
+        <input type="text" name="department" id="department" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="employee_id" class="form-label">Employee ID</label>
+        <input type="text" name="employee_id" id="employee_id" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="email_id" class="form-label">Email ID</label>
+        <input type="email" name="email_id" id="email_id" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="mobile_number" class="form-label">Mobile Number</label>
+        <input type="text" name="mobile_number" id="mobile_number" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" name="location" id="location" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="sub_location" class="form-label">Sub Location</label>
+        <input type="text" name="sub_location" id="sub_location" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <!-- Device Details Section -->
+  <div class="card mb-4 p-4">
+    <h5>Device Details</h5>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <label for="mac_id" class="form-label">MAC ID</label>
+        <input type="text" name="mac_id" id="mac_id" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="ip_address" class="form-label">IP Address</label>
+        <input type="text" name="ip_address" id="ip_address" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="network_type" class="form-label">Network Type</label>
+        <input type="text" name="network_type" id="network_type" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="device_type" class="form-label">Device Type</label>
+        <input type="text" name="device_type" id="device_type" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="pc_name" class="form-label">PC Name</label>
+        <input type="text" name="pc_name" id="pc_name" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="cpu_make" class="form-label">CPU Make</label>
+        <input type="text" name="cpu_make" id="cpu_make" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="cpu_model" class="form-label">CPU Model</label>
+        <input type="text" name="cpu_model" id="cpu_model" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="cpu_serial_number" class="form-label">CPU Serial Number</label>
+        <input type="text" name="cpu_serial_number" id="cpu_serial_number" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="Processor" class="form-label">Processor</label>
+        <input type="text" name="Processor" id="Processor" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="Gen" class="form-label">Generation</label>
+        <input type="text" name="Gen" id="Gen" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="RAM" class="form-label">RAM</label>
+        <input type="text" name="RAM" id="RAM" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="bit" class="form-label">System Type (32/64-bit)</label>
+        <input type="text" name="bit" id="bit" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="os" class="form-label">Operating System</label>
+        <input type="text" name="os" id="os" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="HDD" class="form-label">HDD</label>
+        <input type="text" name="HDD" id="HDD" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="SDD" class="form-label">SSD</label>
+        <input type="text" name="SDD" id="SDD" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="monitor" class="form-label">monitor Make</label>
+        <input type="text" name="monitor" id="monitor" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="monitor_model" class="form-label">monitor Model</label>
+        <input type="text" name="monitor_model" id="monitor_model" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="monitor_serial_number" class="form-label">monitor Serial Number</label>
+        <input type="text" name="monitor_serial_number" id="monitor_serial_number" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <!-- Peripherals Section -->
+  <div class="card mb-4 p-4">
+    <h5>Peripherals</h5>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <label for="printer_scanner_Type" class="form-label">Printer/Scanner Type</label>
+        <input type="text" name="printer_scanner_Type" id="printer_scanner_Type" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="printer_scanner_make" class="form-label">Printer/Scanner Make</label>
+        <input type="text" name="printer_scanner_make" id="printer_scanner_make" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="printer_scanner_model" class="form-label">Printer/Scanner Model</label>
+        <input type="text" name="printer_scanner_model" id="printer_scanner_model" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="printer_scanner_serial_number" class="form-label">Printer/Scanner Serial Number</label>
+        <input type="text" name="printer_scanner_serial_number" id="printer_scanner_serial_number" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="keyboard_make" class="form-label">Keyboard Make</label>
+        <input type="text" name="keyboard_make" id="keyboard_make" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="keyboard_model" class="form-label">Keyboard Model</label>
+        <input type="text" name="keyboard_model" id="keyboard_model" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="keyboard_serial_number" class="form-label">Keyboard Serial Number</label>
+        <input type="text" name="keyboard_serial_number" id="keyboard_serial_number" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="mouse_make" class="form-label">Mouse Make</label>
+        <input type="text" name="mouse_make" id="mouse_make" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="mouse_model" class="form-label">Mouse Model</label>
+        <input type="text" name="mouse_model" id="mouse_model" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="mouse_serial_number" class="form-label">Mouse Serial Number</label>
+        <input type="text" name="mouse_serial_number" id="mouse_serial_number" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="laptop_adaptor_serial_number" class="form-label">Laptop Adaptor Serial Number</label>
+        <input type="text" name="laptop_adaptor_serial_number" id="laptop_adaptor_serial_number" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <!-- Warranty & Issue Info -->
+  <div class="card mb-4 p-4">
+    <h5>Warranty & Issue Details</h5>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <label for="date_of_issue" class="form-label">Date of Issue</label>
+        <input type="date" name="date_of_issue" id="date_of_issue" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="po_number" class="form-label">PO Number</label>
+        <input type="text" name="po_number" id="po_number" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="vendor_name" class="form-label">Vendor Name</label>
+        <input type="text" name="vendor_name" id="vendor_name" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="warranty_status" class="form-label">Warranty Status</label>
+        <input type="text" name="warranty_status" id="warranty_status" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="AMC" class="form-label">AMC</label>
+        <input type="text" name="AMC" id="AMC" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="created_at" class="form-label">Created At</label>
+        <input type="datetime-local" name="created_at" id="created_at" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success btn-lg">Submit Asset</button>
+</form>
+
+</body>
+</html>
+
+<!-- Assignment_log.php -->
+
+<?php
+include 'config.php';
+
+$query = "SELECT * FROM asset_assignments ORDER BY assigned_date DESC";
+$result = mysqli_query($conn, $query);
+if ($result === false) {
+    die("SQL error: " . mysqli_error($conn));
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asset Assignments</title>
+  <style>
+    body {
+      background: #f4f7f8;
+      font-family: Arial, sans-serif;
+      color: #333;
+      padding: 20px;
+    }
+    .table-responsive {
+      overflow-x: auto;
+      margin: 20px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    table.modern-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      min-width: 600px;
+    }
+    table.modern-table thead {
+      background-color: #347ab7;
+      color: #fff;
+    }
+    table.modern-table th,
+    table.modern-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    table.modern-table tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    table.modern-table tbody tr:hover {
+      background-color: #f1f7fc;
+      cursor: default;
+    }
+    table.modern-table th:first-child,
+    table.modern-table td:first-child {
+      border-top-left-radius: 6px;
+    }
+    table.modern-table th:last-child,
+    table.modern-table td:last-child {
+      border-top-right-radius: 6px;
+    }
+    @media (max-width: 768px) {
+      table.modern-table {
+        font-size: 13px;
+      }
+      table.modern-table th,
+      table.modern-table td {
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Asset Assignments</h2>
+  <div class="table-responsive">
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th> Asset ID</th>
+          <th>Assigned Date</th>
+          <th>Assigned To</th>
+          <th>Returned Date</th>
+          <th>Remark</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php if (mysqli_num_rows($result) > 0): ?>
+        <?php while ($row = mysqli_fetch_assoc($result)): ?>
+          <tr>
+            <!-- link bana diya assest id ko 
+            view_asset_log -->
+            <td><?= htmlspecialchars($row['id']) ?></td>
+             <td><a href ="view_asset_log.php?asset_id=<?=urlencode($row['asset_id']) ?>">
+              <?=htmlspecialchars($row['asset_id'])?>
+             </a></td>
+          
+            <td><?= htmlspecialchars($row['assigned_date']) ?></td>
+            <td><?= htmlspecialchars($row['assigned_to']) ?></td>
+            <td><?= htmlspecialchars($row['returned_date']) ?: '-' ?></td>
+            <td><?= htmlspecialchars($row['remark']) ?></td>
+          </tr>
+        <?php endwhile; ?>
+      <?php else: ?>
+        <tr><td colspan="5" style="text-align:center">No assignments found.</td></tr>
+      <?php endif; ?>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
+
+
+
+<!--  view_assets_log.php -->
+
+<?php
+include 'config.php';
+
+if (!isset($_GET['asset_id'])) {
+    echo "Asset ID missing";
+    exit;
+}
+
+$asset_id = $_GET['asset_id'];
+$sql = "SELECT * FROM asset_assignments WHERE asset_id = ? ORDER BY assigned_date DESC";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "s", $asset_id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>History for <?= htmlspecialchars($asset_id) ?></title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin:20px; background: #f4f7f8; color: #333; }
+    h2 { text-align:center; margin-bottom:20px; }
+    table { width: 100%; background: #fff; border-radius: 6px; overflow: hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    th, td { padding:12px 15px; text-align:left; border-bottom:1px solid #e0e0e0; }
+    tbody tr:nth-child(even) { background-color: #f9f9f9; }
+    tbody tr:hover { background-color: #f1f7fc; }
+    @media(max-width:768px){
+      .hide-on-mobile { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <h2>Assignment History for Asset: <?= htmlspecialchars($asset_id) ?></h2>
+  <div style="overflow-x:auto;">
+    <table id="historyTable" class="display">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Assigned To</th>
+          <th>Assigned Date</th>
+          <th class="hide-on-mobile">Returned Date</th>
+          <th class="hide-on-mobile">Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php if (mysqli_num_rows($result) > 0): ?>
+        <?php while ($row = mysqli_fetch_assoc($result)): ?>
+          <tr>
+            <td><?= htmlspecialchars($row['id']) ?></td>
+            <td><?= htmlspecialchars($row['assigned_to']) ?></td>
+            <td><?= htmlspecialchars($row['assigned_date']) ?></td>
+            <td class="hide-on-mobile"><?= htmlspecialchars($row['returned_date']) ?: '-' ?></td>
+            <td class="hide-on-mobile"><?= htmlspecialchars($row['remark']) ?></td>
+          </tr>
+        <?php endwhile; ?>
+      <?php else: ?>
+        <tr><td colspan="5">No assignment history found for this asset</td></tr>
+      <?php endif; ?>
+      </tbody>
+    </table>
+  </div>
+  <div style="text-align:center; margin-top:20px;">
+    <a href="assignment_log.php">Back to Assignment Log</a>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#historyTable').DataTable({
+        responsive: true,
+        pageLength: 10,
+        lengthMenu: [5,10,25],
+        order: [[2, 'desc']]
+      });
+    });
+  </script>
+</body>
+</html>
+
+//import_asset.php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Assets</title>
+</head>
+<body>
+    <h2>Import Assets Date (CSV)</h2>
+    <form action ="import_export/import_process.php" method="post" enctype="multipart/form-data">
+        <label> Select CSV File: </label>
+        <input type ="file" name="file" accept=".csv" required>
+        <br><br>
+        <button type ="submit" name="import" >Import</button>
+    </form>
+</body>
+</html>
+
+//import_process.php
+ <?php
+include 'config.php'; // should define $conn (mysqli or PDO)
+
+// Ensure form submission and file upload
+if (isset($_POST['import']) && isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
+    $tmpName = $_FILES['file']['tmp_name'];
+
+    if (!is_uploaded_file($tmpName) || filesize($tmpName) === 0) {
+        die("Error: File upload failed or file is empty.");
+    }
+
+    if (($fp = fopen($tmpName, 'r')) === false) {
+        die("Error: Unable to open uploaded file.");
+    }
+
+    // Skip the header row
+    fgetcsv($fp); // see skip‑header technique :contentReference[oaicite:1]{index=1}
+
+    // Prepare a transaction (recommended for batch inserts)
+    if (strpos(get_class($conn), 'PDO') === 0) {
+        $conn->beginTransaction();
+        $placeholder = rtrim(str_repeat('?,', 44), ',');
+        $sql = "INSERT INTO your_table_name (
+            user_name, designation, department, change_reason,
+            employee_id, email_id, mobile_number, location,
+            sub_location, mac_id, ip_address, network_type,
+            device_type, pc_name, cpu_make, cpu_model,
+            cpu_serial_number, processor, generation, ram,
+            bit, os, hdd, sdd,
+            monitor_make, monitor_model, monitor_serial_number,
+            printer_scanner_type, printer_scanner_make, printer_scanner_model,
+            printer_scanner_serial_number,
+            keyboard_make, keyboard_model, keyboard_serial_number,
+            mouse_make, mouse_model, mouse_serial_number,
+            laptop_adaptor_serial_number, date_of_issue, po_number, vendor_name,
+            warranty_status, amc, created_at
+        ) VALUES ($placeholder)";
+        $stmt = $conn->prepare($sql);
+    } else {
+        // mysqli
+        $conn->begin_transaction();
+        $question_marks = implode(',', array_fill(0, 44, '?'));
+        $sql = "INSERT INTO your_table_name (
+            user_name, designation, department, change_reason,
+            employee_id, email_id, mobile_number, location,
+            sub_location, mac_id, ip_address, network_type,
+            device_type, pc_name, cpu_make, cpu_model,
+            cpu_serial_number, processor, generation, ram,
+            bit, os, hdd, sdd,
+            monitor_make, monitor_model, monitor_serial_number,
+            printer_scanner_type, printer_scanner_make, printer_scanner_model, printer_scanner_serial_number,
+            keyboard_make, keyboard_model, keyboard_serial_number,
+            mouse_make, mouse_model, mouse_serial_number,
+            laptop_adaptor_serial_number, date_of_issue, po_number, vendor_name,
+            warranty_status, amc, created_at
+        ) VALUES ($question_marks)";
+        $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            error_log('MySQL prepare failed: ' . $conn->error);
+            die("Internal server error.");
+        }
+    }
+
+    $rowCount = 0;
+    while (($row = fgetcsv($fp)) !== false) {
+        $rowCount++;
+
+        // Basic sanity check
+        if (count($row) < 44) {
+            error_log("Skipping line $rowCount — expected 44 columns, got " . count($row));
+            continue;
+        }
+
+        // Trim all inputs
+        foreach ($row as &$cell) {
+            $cell = trim($cell);
+        }
+        unset($cell);
+
+        // Optionally convert formats e.g. date_of_issue → YYYY-MM-DD
+        if (!empty($row[38])) {
+            $date = DateTime::createFromFormat('Y-m-d', $row[38]) ?: DateTime::createFromFormat('d/m/Y', $row[38]);
+            $row[38] = $date ? $date->format('Y-m-d') : null;
+        }
+
+        try {
+            $stmt->execute($row);
+        } catch (Exception $e) {
+            error_log("Failed to insert row $rowCount: " . $e->getMessage());
+            // optionally continue or break
+        }
+    }
+
+    fclose($fp);
+
+    // Commit the inserts if using PDO or mysqli transaction
+    if (strpos(get_class($conn), 'PDO') === 0) {
+        $conn->commit();
+    } else {
+        $conn->commit();
+    }
+
+    echo "Import complete: processed $rowCount rows.";
+} else {
+    echo "No file uploaded or import button not clicked.";
+}
+?>
+
+
+//edit_asset.photos<?php
+include 'config.php';
+
+$id = null;
+$row = null;
+$update = '';  // or 'update'
+$old_data_json = '';
+$new_data_json = '';
+$change_reason = $_POST['change_reason'] ?? '';
+
+if (isset($_GET['id']) ) { 
+    $id = (int)$_GET['id'];
+    $stmt = mysqli_prepare($conn, "SELECT * FROM assets WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    if ($result ) {
+        $row = mysqli_fetch_assoc($result);
+    } else {
+        header("Location: view_assets.php");
+        exit;
+    }
+    mysqli_stmt_close($stmt);
+} else {
+    header("Location: view_assets.php");
+    exit;
+}
+
+// INSTERTING LOG ENTERY AFTER UPDATE
+$log_query = "INSERT INTO asset_logs(asset_id, action_type,
+ old_data, new_data, changed_by, change_reason)
+  VALUES ('$id','$update','$old_data_json','$new_data_json','admin','$change_reason')";
+                              
+ mysqli_query($conn,$log_query);
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Asset #<?= htmlspecialchars($row['id']) ?></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+  <h2>Edit Asset #<?= htmlspecialchars($row['id']) ?></h2>
+
+  <form action="update_asset.php" method="POST" class="mt-4">
+    <input type="hidden" name="id" value="<?= htmlspecialchars($row['id']) ?>">
+
+    <!-- Tabs Navigation -->
+    <ul class="nav nav-tabs" id="assetTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="user-tab" data-bs-toggle="tab" data-bs-target="#user" type="button" role="tab">User Info</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs" type="button" role="tab">System Specs</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="peripherals-tab" data-bs-toggle="tab" data-bs-target="#peripherals" type="button" role="tab">Peripherals</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="issue-tab" data-bs-toggle="tab" data-bs-target="#issue" type="button" role="tab">Issuance & Vendor</button>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-3">
+      <!-- User Info -->
+      <div class="tab-pane fade show active" id="user" role="tabpanel">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">User Name</label>
+            <input required name="user_name" class="form-control" value="<?= htmlspecialchars($row['user_name']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Designation (Category)</label>
+            <input name="designation" class="form-control" value="<?= htmlspecialchars($row['designation']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Department</label>
+            <input name="department" class="form-control" value="<?= htmlspecialchars($row['department']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Employee ID</label>
+            <input required name="employee_id" class="form-control" value="<?= htmlspecialchars($row['employee_id']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Email ID</label>
+            <input type="email" name="email_id" class="form-control" value="<?= htmlspecialchars($row['email_id']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Mobile Number</label>
+            <input name="mobile_number" class="form-control" value="<?= htmlspecialchars($row['mobile_number']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Location</label>
+            <input name="location" class="form-control" value="<?= htmlspecialchars($row['location']) ?>">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Sub Location</label>
+            <input name="sub_location" class="form-control" value="<?= htmlspecialchars($row['sub_location']) ?>">
+          </div>
+           <div class="col-md-6">
+            <label class="form-label">Reason for change</label>
+           <input name="change_reason"
+       value="<?= htmlspecialchars(isset($row['change_reason']) ? $row['change_reason'] : '') ?>">
+
+          </div>
+        </div>
+      </div>
+
+      <!-- System Specs -->
+      <div class="tab-pane fade" id="specs" role="tabpanel">
+        <div class="accordion" id="specsAccordion">
+          <!-- Network & Device -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingNetwork">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseNetwork" aria-expanded="true">
+                Network & Device
+              </button>
+            </h2>
+            <div id="collapseNetwork" class="accordion-collapse collapse show" data-bs-parent="#specsAccordion">
+              <div class="accordion-body">
+                <div class="row g-3">
+                  <div class="col-md-6"><label>MAC ID</label><input name="mac_id" class="form-control" value="<?= htmlspecialchars($row['mac_id']) ?>"></div>
+                  <div class="col-md-6"><label>IP Address</label><input name="ip_address" class="form-control" value="<?= htmlspecialchars($row['ip_address']) ?>"></div>
+                  <div class="col-md-6"><label>Network Type</label><input name="network_type" class="form-control" value="<?= htmlspecialchars($row['network_type']) ?>"></div>
+                  <div class="col-md-6"><label>Device Type</label><input name="device_type" class="form-control" value="<?= htmlspecialchars($row['device_type']) ?>"></div>
+                  <div class="col-md-6"><label>PC Name</label><input name="pc_name" class="form-control" value="<?= htmlspecialchars($row['pc_name']) ?>"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- CPU & Memory -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCPU">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseCPU" aria-expanded="false">
+                CPU & Memory
+              </button>
+            </h2>
+            <div id="collapseCPU" class="accordion-collapse collapse" data-bs-parent="#specsAccordion">
+              <div class="accordion-body">
+                <div class="row g-3">
+                  <div class="col-md-6"><label>CPU Make</label><input name="cpu_make" class="form-control" value="<?= htmlspecialchars($row['cpu_make']) ?>"></div>
+                  <div class="col-md-6"><label>CPU Model</label><input name="cpu_model" class="form-control" value="<?= htmlspecialchars($row['cpu_model']) ?>"></div>
+                  <div class="col-md-6"><label>CPU Serial Number</label><input name="cpu_serial_number" class="form-control" value="<?= htmlspecialchars($row['cpu_serial_number']) ?>"></div>
+                  <div class="col-md-6"><label>Processor</label><input name="Processor" class="form-control" value="<?= htmlspecialchars($row['Processor']) ?>"></div>
+                  <div class="col-md-4"><label>Generation</label><input name="Gen" class="form-control" value="<?= htmlspecialchars($row['Gen']) ?>"></div>
+                  <div class="col-md-4"><label>RAM</label><input name="RAM" class="form-control" value="<?= htmlspecialchars($row['RAM']) ?>"></div>
+                  <div class="col-md-4"><label>Bit</label><input name="bit" class="form-control" value="<?= htmlspecialchars($row['bit']) ?>"></div>
+                  <div class="col-md-6"><label>OS</label><input name="os" class="form-control" value="<?= htmlspecialchars($row['os']) ?>"></div>
+                  <div class="col-md-6"><label>HDD</label><input name="HDD" class="form-control" value="<?= htmlspecialchars($row['HDD']) ?>"></div>
+                  <div class="col-md-6"><label>SSD</label><input name="SDD" class="form-control" value="<?= htmlspecialchars($row['SDD']) ?>"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Monitor Specs -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingMonitor">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseMonitor" aria-expanded="false">
+                Monitor Details
+              </button>
+            </h2>
+            <div id="collapseMonitor" class="accordion-collapse collapse" data-bs-parent="#specsAccordion">
+              <div class="accordion-body">
+                <div class="row g-3">
+                  <div class="col-md-6"><label>Monitor Make</label><input name="monitor_make" class="form-control" value="<?= htmlspecialchars($row['monitor_make']) ?>"></div>
+                  <div class="col-md-6"><label>Monitor Model</label><input name="monitor_model" class="form-control" value="<?= htmlspecialchars($row['monitor_model']) ?>"></div>
+                  <div class="col-md-6"><label>Monitor Serial Number</label><input name="monitor_serial_number" class="form-control" value="<?= htmlspecialchars($row['monitor_serial_number']) ?>"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Peripherals -->
+      <div class="tab-pane fade" id="peripherals" role="tabpanel">
+        <div class="accordion" id="periAccordion">
+          <?php foreach (['printer_scanner', 'keyboard', 'mouse'] as $type): ?>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading<?= ucfirst($type) ?>">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= ucfirst($type) ?>">
+                <?= ucfirst(str_replace('_', ' ', $type)) ?>
+              </button>
+            </h2>
+            <div id="collapse<?= ucfirst($type) ?>" class="accordion-collapse collapse show" data-bs-parent="#periAccordion">
+              <div class="accordion-body">
+                <div class="row g-3">
+                  <div class="col-md-4"><label><?= ucfirst(str_replace('_',' ', $type)) ?> Type</label>
+                  <input name="<?= $type ?>_Type" class="form-control"
+                   value="<?= htmlspecialchars(isset($row['some_field']) ? $row['some_field'] : '') ?>"></div>
+                  <div class="col-md-4"><label>Make</label>
+                  <input name="<?= $type ?>_make" class="form-control" value="<?= htmlspecialchars($row[$type.'_make']) ?>"></div>
+                  <div class="col-md-4"><label>Model</label>
+                  <input name="<?= $type ?>_model" class="form-control" value="<?= htmlspecialchars($row[$type.'_model']) ?>"></div>
+                  <div class="col-md-6"><label>Serial Number</label>
+                  <input name="<?= $type ?>_serial_number" class="form-control" value="<?= htmlspecialchars($row[$type.'_serial_number']) ?>"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php endforeach; ?>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingAdaptor">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdaptor">
+                Adaptor
+              </button>
+            </h2>
+            <div id="collapseAdaptor" class="accordion-collapse collapse" data-bs-parent="#periAccordion">
+              <div class="accordion-body">
+                <div class="row">
+                  <div class="col-md-6"><label>Laptop Adaptor Serial Number</label><input name="laptop_adaptor_serial_number" class="form-control" value="<?= htmlspecialchars($row['laptop_adaptor_serial_number']) ?>"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issuance & Vendor Info -->
+      <div class="tab-pane fade" id="issue" role="tabpanel">
+        <div class="row g-3">
+          <div class="col-md-6"><label>Date of Issue</label><input type="date" name="date_of_issue" class="form-control" value="<?= htmlspecialchars($row['date_of_issue']) ?>"></div>
+          <div class="col-md-6"><label>PO Number</label><input name="po_number" class="form-control" value="<?= htmlspecialchars($row['po_number']) ?>"></div>
+          <div class="col-md-6"><label>Vendor Name</label><input name="vendor_name" class="form-control" value="<?= htmlspecialchars($row['vendor_name']) ?>"></div>
+          <div class="col-md-6"><label>Warranty Status</label><input name="warranty_status" class="form-control" value="<?= htmlspecialchars($row['warranty_status']) ?>"></div>
+          <div class="col-md-6"><label>AMC (Annual Maintenance Contract)</label><input name="AMC" class="form-control" value="<?= htmlspecialchars($row['AMC']) ?>"></div>
+          <div class="col-md-6"><label>Created At</label><input name="created_at" class="form-control" value="<?= htmlspecialchars($row['created_at']) ?>"></div>
+         <div class="col-md-6">
+            <label class="form-label">Reason for change</label>
+           <input name="change_reason"
+       value="<?= htmlspecialchars(isset($row['change_reason']) ? $row['change_reason'] : '') ?>">
+
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4">Update Asset</button>
+    <a href="view_assets.php" class="btn btn-secondary mt-4 ms-2">Cancel</a>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- //company aset assigned table view all -->
+ <?php
+
+$host = "localhost";
+$user="root";
+$password="";
+$dbname="assets_db";
+
+//db connection
+$conn= mysqli_connect($host,$user,$password,$dbname);
+// check connection
+if(!$conn) {
+    die("connection failed: " . mysqli_connect_error());
+}
+?>
+
+
+
+
+<!-- DASHBOARD view_all.php -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+     <div class="row">
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Assets Overview</h6>
+                                    <table class="table table-striped">
+                                
+                                    <thead>
+                                      <tr>
+                                          <th scope="col">#</th>
+                                            <th scope="col">Company</th>
+                                            <th scope="col">Asset</th>
+                                            <th scope="col">Assigned</th>                
+                                      </tr>
+                                     </thead>
+                                     <tbody>
+                                       <tr>
+                                           <th scope="row">1</th>
+                                            <td>Sarda Energy and Minerals ltd</td>
+                                            <td>200</td>
+                                            <td>194</td>
+                                      </tr>
+                                      <tr>
+                                                          <th scope="row">2</th>
+                                                          <td>Sarda Global Trading DMCC</td>
+                                                          <td>200</td>
+                                                          <td>194</td>
+                                      </tr>
+                                      <tr>
+                                                          <th scope="row">3</th>
+                                                          <td>Sarda Metals & Alloys Limited</td>
+                                                          <td>Thornton</td>
+                                                          <td>@fat</td>
+                                      </tr>
+                                      <tr>
+                                                          <th scope="row">4</th>
+                                                          <td colspan="2">
+                                                           Chhattisgarh Hydro Power LLP</td>
+                                                          <td>@twitter</td>
+                                      </tr>
+                                    <?php include 'fetch.php'?>
+                    </tbody>
+                     
+                                    </table>
+                                   
+                                </div>
+ </body>
+ </html>
+
+
+
+
+ update_asset.php
+
+ <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+include 'config.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Escape ID for safety
+    $id_safe = mysqli_real_escape_string($conn, $_POST['id']);
+
+    // Fetch old data before the update
+    $old_result = mysqli_query($conn, "SELECT * FROM assets WHERE id = '$id_safe'");
+    if (!$old_result) {
+        die("Database error (old data): " . mysqli_error($conn));
+    }
+    $old_data = mysqli_fetch_assoc($old_result);
+
+    // Perform the update Query
+    $query = "UPDATE assets SET
+        user_name = '" . mysqli_real_escape_string($conn, $_POST['user_name']) . "',
+        designation = '" . mysqli_real_escape_string($conn, $_POST['designation']) . "',
+        department = '" . mysqli_real_escape_string($conn, $_POST['department']) . "',
+        employee_id = '" . mysqli_real_escape_string($conn, $_POST['employee_id']) . "',
+        email_id = '" . mysqli_real_escape_string($conn, $_POST['email_id']) . "',
+        mobile_number = '" . mysqli_real_escape_string($conn, $_POST['mobile_number']) . "',
+        location = '" . mysqli_real_escape_string($conn, $_POST['location']) . "',
+        sub_location = '" . mysqli_real_escape_string($conn, $_POST['sub_location']) . "',
+        mac_id = '" . mysqli_real_escape_string($conn, $_POST['mac_id']) . "',
+        ip_address = '" . mysqli_real_escape_string($conn, $_POST['ip_address']) . "',
+        network_type = '" . mysqli_real_escape_string($conn, $_POST['network_type']) . "',
+        device_type = '" . mysqli_real_escape_string($conn, $_POST['device_type']) . "',
+        pc_name = '" . mysqli_real_escape_string($conn, $_POST['pc_name']) . "',
+        cpu_make = '" . mysqli_real_escape_string($conn, $_POST['cpu_make']) . "',
+        cpu_model = '" . mysqli_real_escape_string($conn, $_POST['cpu_model']) . "',
+        cpu_serial_number = '" . mysqli_real_escape_string($conn, $_POST['cpu_serial_number']) . "',
+        Processor = '" . mysqli_real_escape_string($conn, $_POST['Processor']) . "',
+        Gen = '" . mysqli_real_escape_string($conn, $_POST['Gen']) . "',
+        RAM = '" . mysqli_real_escape_string($conn, $_POST['RAM']) . "',
+        bit = '" . mysqli_real_escape_string($conn, $_POST['bit']) . "',
+        os = '" . mysqli_real_escape_string($conn, $_POST['os']) . "',
+        HDD = '" . mysqli_real_escape_string($conn, $_POST['HDD']) . "',
+        SDD = '" . mysqli_real_escape_string($conn, $_POST['SDD']) . "',
+        monitor_make = '" . mysqli_real_escape_string($conn, $_POST['monitor_make']) . "',
+        monitor_model = '" . mysqli_real_escape_string($conn, $_POST['monitor_model']) . "',
+        monitor_serial_number = '" . mysqli_real_escape_string($conn, $_POST['monitor_serial_number']) . "',
+        printer_scanner_Type = '" . mysqli_real_escape_string($conn, $_POST['printer_scanner_Type']) . "',
+        printer_scanner_make = '" . mysqli_real_escape_string($conn, $_POST['printer_scanner_make']) . "',
+        printer_scanner_model = '" . mysqli_real_escape_string($conn, $_POST['printer_scanner_model']) . "',
+        printer_scanner_serial_number = '" . mysqli_real_escape_string($conn, $_POST['printer_scanner_serial_number']) . "',
+        keyboard_make = '" . mysqli_real_escape_string($conn, $_POST['keyboard_make']) . "',
+        keyboard_model = '" . mysqli_real_escape_string($conn, $_POST['keyboard_model']) . "',
+        keyboard_serial_number = '" . mysqli_real_escape_string($conn, $_POST['keyboard_serial_number']) . "',
+        mouse_make = '" . mysqli_real_escape_string($conn, $_POST['mouse_make']) . "',
+        mouse_model = '" . mysqli_real_escape_string($conn, $_POST['mouse_model']) . "',
+        mouse_serial_number = '" . mysqli_real_escape_string($conn, $_POST['mouse_serial_number']) . "',
+        laptop_adaptor_serial_number = '" . mysqli_real_escape_string($conn, $_POST['laptop_adaptor_serial_number']) . "',
+        date_of_issue = '" . mysqli_real_escape_string($conn, $_POST['date_of_issue']) . "',
+        po_number = '" . mysqli_real_escape_string($conn, $_POST['po_number']) . "',
+        vendor_name = '" . mysqli_real_escape_string($conn, $_POST['vendor_name']) . "',
+        warranty_status = '" . mysqli_real_escape_string($conn, $_POST['warranty_status']) . "',
+        AMC = '" . mysqli_real_escape_string($conn, $_POST['AMC']) . "',
+        created_at = '" . mysqli_real_escape_string($conn, $_POST['created_at']) . "'
+        WHERE id = '$id_safe'";
+
+    mysqli_query($conn, $query) or die("Update failed: " . mysqli_error($conn));
+
+    // Fetch new data after update
+    $new_result = mysqli_query($conn, "SELECT * FROM assets WHERE id = '$id_safe'");
+    if (!$new_result) {
+        die("Database error (new data): " . mysqli_error($conn));
+    }
+    $new_data = mysqli_fetch_assoc($new_result);
+
+    // Prepare log data
+    $update = 'Updated';
+    $old_data_json = json_encode($old_data);
+    $new_data_json = json_encode($new_data);
+    $change_reason_safe = mysqli_real_escape_string($conn, $_POST['change_reason']);
+
+    // Log into asset_logs
+    $log_query = "
+      INSERT INTO asset_logs
+        (asset_id, action_type, old_data, new_data, changed_by, change_reason, created_at)
+      VALUES
+        ('$id_safe', '$update', '$old_data_json', '$new_data_json', 'admin', '$change_reason_safe', NOW())";
+
+    mysqli_query($conn, $log_query) or die("Log insert failed: " . mysqli_error($conn));
+
+    header("Location: assets_list.php");
+    exit;
+}
+
+
+form_assetnum.php 
+
+<?php
+$host="localhost"; $user="root"; $password=""; $dbname="assets_db";
+$conn = mysqli_connect($host,$user,$password,$dbname);
+if (!$conn) die("Connection failed: " . mysqli_connect_error());
+
+$company = $Asset = $Assigned = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'
+    && isset($_POST['company'], $_POST['Asset'], $_POST['Assigned'])) {
+
+    $company  = trim($_POST['company']);
+    $Asset    = intval($_POST['Asset']);
+    $Assigned = intval($_POST['Assigned']);
+
+    if ($company !== '' && $Asset > 0) {
+        $stmt = mysqli_prepare($conn,
+            "INSERT INTO dashboard (company, Asset, Assigned) VALUES (?, ?, ?)"
+        );
+        mysqli_stmt_bind_param($stmt, 'sii', $company, $Asset, $Assigned);
+
+        if (mysqli_stmt_execute($stmt)) {
+            echo "<h3>SUCCESSFULLY ADDED !!</h3>";
+        } else {
+            echo "Database error: " . mysqli_stmt_error($stmt);
+        }
+
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "Please enter a company name and a valid asset number.";
+    }
+}
+
+mysqli_close($conn);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF‑8">
+  <title>Dashboard Form</title>
+</head>
+<body>
+  <form method="POST" action="">
+    <label>Company:
+      <input type="text" name="company" required>
+    </label><br>
+
+    <label>Total Number of Assets:
+      <input type="number" name="Asset" min="1" required>
+    </label><br>
+
+    <label>Assigned:
+      <input type="number" name="Assigned" min="0">
+    </label><br>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

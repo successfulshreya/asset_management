@@ -1,0 +1,11 @@
+asset tracking
+Feature / Field Group	Examples / Purpose
+Real-time tracking	Instant location via GPS, RFID, BLE
+Automated capture	Barcode / QR / RFID scanning, NFC tap
+Mobile & Offline access	Field use with auto sync when online
+Maintenance & lifecycle	Scheduled maintenance, depreciation, warranty tracking
+Audit & compliance	User logs, check‑ins/outs, modification tracking
+Reporting & analytics	Usage stats, costs, lifecycle KPIs
+Integrations & scalability	ERP/CMMS links, multiple locations, growing volume
+Security & permissions	Role-based access, encryption, audit controls
+Data schema flexibility	Relational or EAV-based model depending on asset variance
