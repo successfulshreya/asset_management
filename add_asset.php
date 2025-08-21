@@ -6,7 +6,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   if(empty($_POST['id'])){
     $date =date('ymd');
     $random = rand(1000, 9999);
-    $_POST['id']="AST-$date-$random";
+    // $_POST['id']="AST-$date-$random";
+     $_POST['id']="$random";
   }
 
 $id = $_POST['id'];
@@ -334,13 +335,14 @@ INSERT INTO assets (
 <script>
 
   function generateAssetID() {
-    const date = new Date();
-    const yyyy = date.getFullYear().toString().slice(-2);
-    const mm =(date.getMonth() + 1).toString().padStart(2,'0');
+    // const date = new Date();
+    // const yyyy = date.getFullYear().toString().slice(-2);
+    // const mm =(date.getMonth() + 1).toString().padStart(2,'0');
 
     const random = Math.floor(Math.random() * 9000 + 1000); 
 
-    return `AST-${yyyy}${mm}${dd}-${random}`;
+    // return `AST-${yyyy}${mm}${dd}-${random}`;
+    return `${random}`;
   
   }
 

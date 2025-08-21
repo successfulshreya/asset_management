@@ -16,6 +16,7 @@ if (isset($_GET['query'])) {
     $result = mysqli_query($conn, $sql);
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +24,43 @@ if (isset($_GET['query'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Asset Search</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #result {
+      position:absolute;
+      width: 400px;
+      background-color: #fff;
+      border:1px solid #ccc;
+      display: none;
+      max-height: 200px;
+      overflow-y:auto;
+      z-index: 1000;
+
+      #result table{
+        width:100%;
+        border-collapse: collapse;
+
+      #result th #result td {
+        border: 1px solid #ddd;
+        padding:6px;
+      
+      }
+      #result tr:hover{
+        background: #f1f1f1;
+        cursor: pointer;
+      }
+    }
+
+    }
+  </style>
 </head>
-<body>
-<div class="container my-5">
-  <h2 class="mb-4">Search Assets</h2>
-  <form class="input-group mb-4" method="GET">
-    <input type="text" name="query" class="form-control" placeholder="Search assets by name, dept, ID, etc." value="<?= htmlspecialchars($search) ?>">
-    <button class="btn btn-primary" type="submit">Search</button>
+<body >
+<div class="container my-5" >
+  <h2 class="mb-3">Search Assets</h2>
+  <form action="" class="input-group mb-4" method="GET" autocomplete="off">
+    <input type="text" id = "searchBox" name="query" class="form-control bg-light boarder-0 small" placeholder="Search assets by name,ip...etc." value="<?= htmlspecialchars($search) ?>">
+    <div id= "result"
+     class="posible-absolute"></div>
+    <!-- <button class="btn btn-primary" type="submit">Search</button> -->
   </form>
 
   <?php if (isset($result)): ?>
@@ -71,5 +102,33 @@ if (isset($_GET['query'])) {
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+  const searchBox = document.getElementById("searchBox");
+   const resultDiv = document.getElementById("result");
+
+   searchBox.addEventListener("ketup",function(){
+    let query = this.value;
+    if(query>0){
+      fetch("ajax_search.php?q=" + query )
+      .then(res => res.text())
+      .then(data => {
+        resultDiv.innerHTML = data;
+        resultDiv.style.display = "block";
+      
+      })
+      
+    }else{
+      resultDiv.style.display = "none";
+    }
+   });
+
+   //row click -value set in input
+   function fillSearch(ip,name){
+    searchBox.value=ip+ " - " + name;
+    resultDiv.style.display = "none";
+   }
+
+  </script>
 </body>
 </html>

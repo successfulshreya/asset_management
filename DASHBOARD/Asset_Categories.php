@@ -56,6 +56,7 @@
                             <?php include 'fetch_Categories.php'; ?>
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
         </div>

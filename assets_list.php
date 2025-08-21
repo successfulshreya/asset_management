@@ -56,18 +56,24 @@ $result = mysqli_query($conn, $sql);
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+          <table class="table table-bordered table-striped table-hover" 
+          id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th>Asset ID</th><th>User Name</th><th>Designation</th><th>Department</th>
-                <th>Employee ID</th><th>E‑mail ID</th><th>Mobile Number</th><th>Location</th>
-                <th>Sub‑Location</th><th>MAC ID</th><th>IP Address</th><th>Network Type{static/DHCP}</th>
+                <th>Asset ID</th><th>User Name</th><th>Designation</th>
+                <th>Department</th>
+                <th>Employee ID</th><th>E‑mail ID</th>
+                <th>Mobile Number</th>
+                <th>Location</th>
+                <th>Sub‑Location</th><th>MAC ID</th><th>IP Address</th>
+                <th>Network Type{static/DHCP}</th>
                 <th>Device Type</th>
                 <!-- cpu -->
                 <th>PC Name</th><th>CPU Make</th><th>CPU Model</th>
                 <th>CPU Serial Number</th>
                 <th>Processor</th><th>Generation</th><th>RAM</th>
-                <th>Bit</th><th>OS</th><th>HDD</th><th>SSD</th><th>Monitor Make</th>
+                <th>Bit</th><th>OS</th><th>HDD</th><th>SSD</th>
+                <th>Monitor Make</th>
                 <th>Monitor Model</th><th>Monitor Serial Number</th>
                 <!-- printer -->
                 <th>Printer/Scanner Type{Static / DHCP}</th></th>
@@ -77,9 +83,15 @@ $result = mysqli_query($conn, $sql);
                 <th>Keyboard Serial No</th>
                 <!-- mouse -->
                 <th>Mouse Make</th><th>Mouse Model</th>
-                <th>Mouse Serial No</th><th>Laptop Power Adaptor</th><th>Date of Issue</th>
-                <th>PO Number</th><th>Vendor Name</th><th>Warranty Status</th>
-                <th>AMC</th><th>Created At</th>
+                <th>Mouse Serial No</th><th>Laptop Power Adaptor</th>
+                <th>PO Number</th>
+                <th>Vendor Name</th><th>Date of Issue </th>
+                <th>Warranty Status</th>
+                <th>AMC</th>
+                <th>value 41</th>
+                <th>value 42</th>
+                <th>value 43</th>
+                <th>Created At</th>
               </tr>
             </thead>
             <tbody>

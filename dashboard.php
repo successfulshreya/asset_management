@@ -28,15 +28,94 @@ $result = mysqli_query($conn, $sql);
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+<!-- Search -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
     <!-- Custom styles for this template-->
     <link href="assetss/css/sb-admin-2.min.css" rel="stylesheet">
+<style>
+    /* 1. Card Enhancements */
+    .shadow-img{
+        width: 300px;
+        border-radius:10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+    }
+.card {
+  border-radius: 0.65rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 2. Color Accents & Consistency */
+.border-left-primary { border-left: 4px solid #4e73df !important; }
+.border-left-success { border-left: 4px solid #1cc88a !important; }
+.border-left-danger { border-left: 4px solid #e74a3b !important; }
+.border-left-info    { border-left: 4px solid #36b9cc !important; }
+
+.card .text-xs {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.card .h5 {
+  font-size: 1.25rem;
+}
+
+/* 3. Table Styling */
+table.table-striped tbody tr:hover {
+  background-color: #f2f2f2;
+  transition: background-color 0.3s ease;
+}
+
+table thead th {
+  background-color: #f8f9fc;
+  font-weight: 600;
+}
+
+/* 4. Button Styling */
+.btn-primary {
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2e59d9;
+}
+
+/* 5. Spacing & Alignment */
+.container-fluid { padding-top: 1.5rem; }
+
+.row.mb-4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* 6. Progress Bar Transition */
+.progress .progress-bar {
+  transition: width 0.5s ease;
+}
+
+/* 7. Responsive Adjustments */
+@media (max-width: 992px) {
+  .row.mb-4 { flex-direction: column; }
+  .col-xl-3, .col-md-6 { width: 100%; }
+}
+
+</style>
 </head>
 
-<body id="page-top">
+<body style="background-color: #abbde6ff;"  id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
+
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -46,12 +125,17 @@ $result = mysqli_query($conn, $sql);
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class=""></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SEML Manage Assets</div>
+                <div class="sidebar-brand-text mx-3">
+                <img src="sardalogo.jpg" alt="company logo" style="height:6rem; width:14rem; "class="shadow-img">
+                <br>
+                <br>SEML Manage Assets</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
+<br>
+<br>
+<br>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="dashboard.php">
@@ -85,7 +169,7 @@ $result = mysqli_query($conn, $sql);
                           <a class="collapse-item" href="CMDM.html">CMDM</a>
                           <a class="collapse-item" href="furniture.html">Furniture</a>
                     </div>
-                </div>
+                </div>  
             </li>
 
 
@@ -221,7 +305,7 @@ $result = mysqli_query($conn, $sql);
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
+                   <!-- // Topbar Search
                     <form action="search_assets.php" method="GET"
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                       
@@ -234,7 +318,38 @@ $result = mysqli_query($conn, $sql);
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
+
+
+
+                 <form action="" class="input-group mb-4" method="GET" autocomplete="off">
+    <input type="text" id = "searchBox" name="query" class="form-control bg-light boarder-0 small" placeholder="Search assets by name,ip...etc." value="<?= htmlspecialchars($search) ?>">
+    <div id= "result"
+     class="posible-absolute"></div>
+    <!-- <button class="btn btn-primary" type="submit">Search</button> -->
+  </form>
+
+                    <script>
+                        const searchBox = document.getElementById("searchBox");
+                        const resultDiv = document.getElementById("result");
+
+                        searchBox.addEventListener("keyup",function(){
+                            let query = this.value;
+
+                            if(query.lengtyh >1){
+                                fetch("search.php?q=" + query).then(response => response.text()).then(data => {
+                                    resultDiv.innerHTML = data;
+                                });
+
+                            }else{
+                                resultDiv.innerHTML = "";
+                            }
+                        })
+                    </script>
+
+
+
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -284,8 +399,8 @@ $result = mysqli_query($conn, $sql);
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        <div class="small text-gray-500">Today</div>
+                                        <div class="font-weight-bold">New Asset <strong>Laptop - Dell </strong> has been added successfully!</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -295,8 +410,8 @@ $result = mysqli_query($conn, $sql);
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
+                                        <div class="small text-gray-500">Yesterday</div>
+                                       License <strong>MS Office will expier in 5 days </strong>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -306,8 +421,8 @@ $result = mysqli_query($conn, $sql);
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
+                                        <div class="small text-gray-500">2 DAYS AGO</div>
+                                        Asset <strong>Printert - HP </strong> moved to repair section.
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
@@ -335,8 +450,7 @@ $result = mysqli_query($conn, $sql);
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
+                                        <div class="text-truncate">System Update Asset logbook features has been added.</div>
                                         <div class="small text-gray-500">Emily Fowler · 58m</div>
                                     </div>
                                 </a>
@@ -347,8 +461,7 @@ $result = mysqli_query($conn, $sql);
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
+                                        <div class="text-truncate">Remainder: Please update asset details before monthly audit .</div>
                                         <div class="small text-gray-500">Jae Chun · 1d</div>
                                     </div>
                                 </a>
@@ -359,8 +472,7 @@ $result = mysqli_query($conn, $sql);
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
+                                        <div class="text-truncate">Last month's report updated successfully</div>
                                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                     </div>
                                 </a>
@@ -432,12 +544,12 @@ $result = mysqli_query($conn, $sql);
                     <div class="row">
  
                         <div class="col-xl-3 col-md-6 mb-4" >
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <a href=assets_list.php> <div  class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                             <a href=assets_list.php>Assets</a></div>
+                                            Assets</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">2000</div>
                                         </div>
                                         <div class="col-auto">
@@ -445,7 +557,7 @@ $result = mysqli_query($conn, $sql);
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div></a>
                         </div>
                          
                      
@@ -523,7 +635,8 @@ $result = mysqli_query($conn, $sql);
                         <!--report  Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
+                                <div  class="card-body">
+                                   
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Reports
@@ -538,6 +651,7 @@ $result = mysqli_query($conn, $sql);
                                                             style="width: 50%" aria-valuenow="50" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -551,14 +665,30 @@ $result = mysqli_query($conn, $sql);
 
                     </div>
 
+<!-- <div style="display:flex; justify-content:space-evenly">
+<div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+style="width:380px;  height:280px; margin-top:50px;">table</div>
 
+<div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+style="width:380px;  height:280px; margin-top:50px;">table</div>
+
+
+<div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+style="width:380px;  height:280px; margin-top:50px;  ">table</div>
+
+</div> -->
+                    
                     <!-- Content Row -->
 
 
-                    <div class="row">
+                    <div class="row" >
+
  <!-- Area Chart -->
-     <div class="col-xl-8 col-lg-7">
-        <div class="card shadow mb-4">
+
+
+
+     <div class="col-xl-8 col-lg-7" style="margin-right: 14rem;">
+        <div class="card shadow mb-4" style="width:100%";>
             <!-- Card Header - Dropdown -->
             
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -637,17 +767,49 @@ $result = mysqli_query($conn, $sql);
                                
                                 </div><a class="btn btn-primary" type="submit" class="btn btn-primary mt-2"
                                  href="DASHBOARD/view_all.php">view all</a></div>
+                                
                                 </div> 
                             </div>
+
+
+                            
+                            <div style="margin-right: 14rem;">
+            <?php include'view_assets.php' ?></div>
+
+            <?php
+$conn = mysqli_connect("localhost", "root", "", "assets_db");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$search = '';
+if (isset($_GET['query'])) {
+    $search = mysqli_real_escape_string($conn, $_GET['query']);
+    $sql = "SELECT * FROM assets
+            WHERE CONCAT_WS(' ',
+                user_name, department, device_type,
+                employee_id, monitor_serial_number,
+                ip_address, email_id
+            ) LIKE '%$search%'";
+    $result = mysqli_query($conn, $sql);
+}
+?>
+
+<div>
+            <?php include'DASHBOARD/Asset_Categories.php' ?></div>
+
                         </div>
 
+
+
                         <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
+                         <div style="margin-right: 14rem;">
+                        <div class="col-xl-4 col-lg-5" >
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Sources</h6>
+                                <!-- <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between " > -->
+                                    <!-- <h6 class="m-0 font-weight-bold text-primary">Sources</h6> -->
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -669,6 +831,7 @@ $result = mysqli_query($conn, $sql);
                         </div>
                     </div>
 
+                    
                     <!-- Content Row -->
                     <div class="row">
 
@@ -693,7 +856,7 @@ $result = mysqli_query($conn, $sql);
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; SEML Asset Management System 2025</span>
                     </div>
                 </div>
             </footer>
@@ -730,6 +893,17 @@ $result = mysqli_query($conn, $sql);
         </div>
     </div>
 
+    <body>
+ <!-- Bootstrap core JavaScript-->
+    <script src="assetss/vendor/jquery/jquery.min.js"></script>
+    <script src="assetss/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assetss/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="assetss/js/sb-admin-2.min.js"></script>
+</body>
     <!-- Bootstrap core JavaScript-->
     <script src="assetss/vendor/jquery/jquery.min.js"></script>
     <script src="assetss/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -764,6 +938,9 @@ $(document).ready(function(){
 });
 </script>
 
+
+<!-- search -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 <?php
 include 'config.php';
 include 'assignment_log.php';
+
 if($_SERVER['REQUEST_METHOD']=="POST"){
     $asset_id =$_POST['asset_id'];
     $assigned_to= $_POST['assigned_to'];
@@ -11,7 +12,7 @@ $update_query = "UPDATE asset_assignments
                  SET returned_date= NOW(), status ='Returned'
                  WHERE asset_id = '$asset_id' AND status = 'Active' ";
                  mysqli_query($conn,$update_query);
-
+    
     $query ="INSERT INTO asset_assignments (asset_id ,assigned_to, remark)
              VALUES('$asset_id','$assigned_to','$remark')";
 
@@ -23,31 +24,24 @@ $update_query = "UPDATE asset_assignments
     }else{
         echo "Error: " . mysqli_error($conn);
     }
-    }else{
-        echo"error:". mysqli_error($conn);
-    }
+  }
+  //  2. UPDATE master data
   
-   // 2. UPDATE master data
-    $stmt2 = $conn->prepare("UPDATE assets_list SET assigned_to = ?, status = 'assigned' WHERE asset_id = ?");
-    $stmt2->bind_param("si", $assigned_to, $asset_id);
-    $stmt2->execute();
-
-    if ($stmt1->affected_rows > 0 && $stmt2->affected_rows > 0) {
-        echo "Asset assigned and master data updated successfully.";
-    } else {
-        echo "Something went wrong.";
-    }
-    
+    // 3. Build the UPDATE query 
+    $query = "UPDATE assets SET
+        user_name = '" . mysqli_real_escape_string($conn, $_POST['user_name']) . "',
+        user_name = '" . mysqli_real_escape_string($conn, $_POST['user_name']) . "',
+        employee_id = '" . mysqli_real_escape_string($conn, $_POST['employee_id']) . "'
+          WHERE id = '$id_safe'";  
+          mysqli_query($conn, $query) or die("Update failed: " . mysqli_error($conn)); 
+    // if (mysqli_query($conn,$queryy)) {
+    //     echo "Asset assigned and master data updated successfully.";
+    // } else { 
+    //     echo "Something went wrong.";
+    // }
 }
-//fetch from assingnment_log.php .
+
 ?>
-
-
-
-
-
-
-
 
 
 
@@ -67,13 +61,16 @@ body {
   width: 360px;
   margin: 2em auto;
   padding: 1.5em;
+ align-content: center;
+
   background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-radius: 7.9px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
 }
 .form-container label {
   display: block;
   margin-bottom: 0.5em;
+
   color: #333;
 }
 .form-container input[type="text"] {

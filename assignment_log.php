@@ -69,15 +69,15 @@ if ($result === false) {
   </style>
 </head>
 <body>
-  <h2>Asset Assignments</h2>
+  <h2>Asset Re-Assignments</h2>
   <div class="table-responsive">
     <table class="modern-table">
       <thead>
         <tr>
-          <th>id</th>
+          <!-- <th>id</th> -->
           <th> Asset ID</th>
           <th>Assigned Date</th>
-          <th>Assigned To</th>
+          <th>Re-Assigned To</th>
           <th>Returned Date</th>
           <th>Remark</th>
         </tr>
@@ -88,7 +88,7 @@ if ($result === false) {
           <tr>
             <!-- link bana diya assest id ko 
             view_asset_log -->
-            <td><?= htmlspecialchars($row['id']) ?></td>
+            <!-- <td><?= htmlspecialchars($row['id']) ?></td> -->
              <td><a href ="view_asset_log.php?asset_id=<?=urlencode($row['asset_id']) ?>">
               <?=htmlspecialchars($row['asset_id'])?>
              </a></td>
