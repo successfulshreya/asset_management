@@ -52,6 +52,7 @@ while($row = mysqli_fetch_assoc($result)){
     echo "<td>".$row['vendor_name']."</td>";
     echo "<td>".$row['warranty_status']."</td>";
     echo "<td>".$row['AMC']."</td>";
+    echo "<td>".$row['status']."</td>";
     echo "<td>".$row['created_at']."</td>";
 
     echo "</tr>";

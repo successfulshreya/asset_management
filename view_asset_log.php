@@ -14,6 +14,9 @@ mysqli_stmt_bind_param($stmt, "s", $asset_id);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,10 +61,17 @@ $result = mysqli_stmt_get_result($stmt);
             <td class="hide-on-mobile"><?= htmlspecialchars($row['returned_date']) ?: '-' ?></td>
             <td class="hide-on-mobile"><?= htmlspecialchars($row['remark']) ?></td>
           </tr>
+
+        
+
+
         <?php endwhile; ?>
       <?php else: ?>
         <tr><td colspan="6">No assignment history found for this asset</td></tr>
       <?php endif; ?>
+
+
+      
       </tbody>
     </table>
   </div>

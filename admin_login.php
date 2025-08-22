@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+// //agar already login hai to dashboard bhej do 
+// if (isset($_SESSION['username'])){
+//   header("location:dashboard.php");
+//   exit();
+// }
 include('./config.php');
 
 $error = "";
@@ -10,9 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "SELECT * FROM admins WHERE username='$username' AND password='$password'";
     $result = mysqli_query($conn, $sql);
+    $row= mysqli_fetch_assoc($result);
 
-    if(mysqli_num_rows($result) == 1){
-        $_SESSION['admin']= $username;
+    // if(mysqli_num_rows($result) == 1){
+    if($row){
+        $_SESSION['username']= $row['username'];
+         $_SESSION['role']= $row['role'];
+          $_SESSION['username']= $row['username'];
         header("Location: ./dashboard.php"); 
         exit();
     }else{

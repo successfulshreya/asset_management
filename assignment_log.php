@@ -1,4 +1,5 @@
 <?php
+
 include 'config.php';
 
 $query = "SELECT * FROM asset_assignments ORDER BY assigned_date DESC";

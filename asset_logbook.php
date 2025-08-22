@@ -46,7 +46,7 @@
   <table class="logbook">
     <thead>
       <tr>
-        <th>ID</th>
+        <!-- <th>ID</th> -->
         <th>Asset ID</th>
         <th>Action</th>
         <th>Old Data</th>
@@ -69,7 +69,7 @@
         while ($row = mysqli_fetch_assoc($result)): 
       ?>
         <tr>
-          <td><?= htmlspecialchars($row['id']) ?></td>
+          <!-- <td><?= htmlspecialchars($row['id']) ?></td> -->
           <td><?= htmlspecialchars($row['asset_id']) ?></td>
           <td><?= htmlspecialchars($row['action_type']) ?></td>
           <td><pre><?= htmlspecialchars($row['old_data']) ?></pre></td>
@@ -83,3 +83,8 @@
   </table>
 </body>
 </html>
+
+
+
+
+<!-- it hold the any change history by who when and where -->

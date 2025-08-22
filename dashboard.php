@@ -1,6 +1,29 @@
 <?php
 include("config.php");
+// //secure
+// if(!isset($_SESSION['username'])){
+//     header("Location: admin_login.php");
+//     exit();
+// }
+// //for disabling browser cache
+// header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+// header("Cache-Control: post-check=0, pre-check=0", false);
+// header("Pragma: no-cache");
+
+//role check  
+ session_start();
+ if($_SESSION['role']== 'admin'){;
+ } elseif (($_SESSION['role']== 'subadmin')) {
+   echo "welcome Sub_aadmin - limited access";
+ }else{
+    echo "welcome employee - access restricted";
+ }
+
 ?>
+<!-- //role check  -->
+
+
+
 <?php
 include("search_assets.php");
 ?>
@@ -111,7 +134,7 @@ table thead th {
 </style>
 </head>
 
-<body style="background-color: #abbde6ff;"  id="page-top">
+<body style="background-color: #e6f0faff;"  id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -138,6 +161,7 @@ table thead th {
 <br>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
+                
                 <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -257,15 +281,16 @@ table thead th {
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <a class="collapse-item" href="DASHBOARD/form_assetnum.php">Add Company</a>
+                        <a class="collapse-item" href="DASHBOARD/view_all.php">view_all-companies</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
+             
             <li class="nav-item">
-                <a class="nav-link" href="chart.php">
+                <a class="nav-link" href="">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
@@ -352,8 +377,9 @@ table thead th {
 
 
                     <!-- Topbar Navbar -->
+                 
                     <ul class="navbar-nav ml-auto">
-
+                    
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="search_assets.php" id="searchDropdown" role="button"
@@ -498,7 +524,7 @@ table thead th {
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['role']; ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="assetss/img/undraw_profile.svg">
                             </a>

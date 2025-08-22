@@ -1,4 +1,5 @@
  <?php
+ 
 include 'config.php'; // should define $conn (mysqli or PDO)
 
 // Ensure form submission and file upload

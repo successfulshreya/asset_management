@@ -5,6 +5,14 @@ if (!isset($_GET['id'])) {
     header("Location: assets_list.php");
     exit;
 }
+
+// //restrictions acc to role condition
+// if($_SESSION['role']!=='admin'){
+
+//     header("Location:no_access.php");
+//     exit();
+// }
+
 $id = $_GET['id'];
 
 // Optional validation: ensure id matches expected format
