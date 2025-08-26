@@ -1,4 +1,5 @@
 <?php
+require 'require_login.php';
 include 'config.php';
 
 $id = null;
@@ -240,13 +241,30 @@ $log_query = "INSERT INTO asset_logs(asset_id, action_type,
            <input name="change_reason"
        value="<?= htmlspecialchars(isset($row['change_reason']) ? $row['change_reason'] : '') ?>">
 
+  <select name="status">
+            <option value="active">active</option>
+            <option value="inactive">inactive</option>
+        </select>
+
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-4">Update Asset</button>
-    <a href="view_assets.php" class="btn btn-secondary mt-4 ms-2">Cancel</a>
+    <!-- <button type="submit" class="btn btn-primary mt-4">Update Asset</button>
+    <a href="view_assets.php" class="btn btn-secondary mt-4 ms-2">Cancel</a> -->
+      <?php
+  if(($_SESSION['role'] ?? '')==='sub_admin'): ?>
+  <button type="submit">submit for Approval</button>
+  <?php else: ?>
+  <button type="submit">save</button>
+  
+  <?php endif; 
+    ?>
+    <a href="view_assets.php" class="btn btn-secondary mt-4 ms-2 ">Cancel</a>
   </form>
 </div>
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

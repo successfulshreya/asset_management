@@ -22,7 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if($row){
         $_SESSION['username']= $row['username'];
          $_SESSION['role']= $row['role'];
-          $_SESSION['username']= $row['username'];
+          // $_SESSION['username']= $row['username'];
+          $_SESSION['id']= $row['id'];
         header("Location: ./dashboard.php"); 
         exit();
     }else{
