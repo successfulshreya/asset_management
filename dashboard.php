@@ -213,6 +213,7 @@ table thead th {
                         <a class="collapse-item" href="Software.html">Filter/SortbyType</a>
                           <a class="collapse-item" href="edit_asset.php">update asset</a>
                             <a class="collapse-item" href="assign_asset.php">Assign asset</a>
+                             <a class="collapse-item" href="approve_reject_byADMIN/approval_request_list.php">APPROVE asset</a>
                 
                     </div>
                 </div>
@@ -588,7 +589,7 @@ table thead th {
                          
                      
                         <div class="col-xl-3 col-md-6 mb-4">
-                          <a href="assets_tools/desktop.php" ><div class="card border-left-success shadow h-100 py-2">
+                          <a href="approval_request_list.php" ><div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body" >
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
