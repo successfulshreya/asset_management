@@ -1,5 +1,5 @@
 <!-- <?php
-include 'config.php';
+include 'config/config.php';
 
 // $sql = "SELECT * FROM assets";
 // $result = mysqli_query($conn, $sql);

@@ -58,7 +58,8 @@
     </thead>
     <tbody>
       <?php
-        include 'config.php';
+        require_once __DIR__ . '/../../config/config.php';
+
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $result = mysqli_query($conn,
           "SELECT * FROM asset_logs ORDER BY changed_on DESC"

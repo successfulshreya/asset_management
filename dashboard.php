@@ -1,5 +1,6 @@
 <?php
-include("config.php");
+
+include("config/config.php");
 // //secure
 // if(!isset($_SESSION['username'])){
 //     header("Location: admin_login.php");
@@ -24,7 +25,7 @@ include("config.php");
 
 
 <?php
-include("search_assets.php");
+include("app/controllers/search_assets.php");
 ?>
 
 <?php
@@ -148,7 +149,7 @@ table thead th {
                     <i class=""></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">
-                <img src="sardalogo.jpg" alt="company logo" style="height:6rem; width:14rem; "class="shadow-img">
+                <img src="public/sardalogo.jpg" alt="company logo" style="height:6rem; width:14rem; "class="shadow-img">
                 <br>
                 <br>SEML Manage Assets</div>
             </a>
@@ -207,13 +208,13 @@ table thead th {
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Asset Components:</h6>
                       
-                            <a class="collapse-item" href="add_asset.php">add asset</a>
-                            <a class="collapse-item" href="view_assets.php">veiw all assets</a>
-                      <a class="collapse-item" href="asset_logbook.php">Asset_logbook </a>
+                            <a class="collapse-item" href="app/controllers/add_asset.php">add asset</a>
+                            <a class="collapse-item" href="Location: app/controllers/view_assets.php">veiw all assets</a>
+                      <a class="collapse-item" href="app/logs/asset_logbook.php">Asset_logbook </a>
                         <a class="collapse-item" href="Software.html">Filter/SortbyType</a>
-                          <a class="collapse-item" href="edit_asset.php">update asset</a>
+                          <a class="collapse-item" href="app/controllers/edit_asset.php">update asset</a>
                             <a class="collapse-item" href="assign_asset.php">Assign asset</a>
-                             <a class="collapse-item" href="approve_reject_byADMIN/approval_request_list.php">APPROVE asset</a>
+                             <a class="collapse-item" href="app/approval/approval_request_list.php">APPROVE asset</a>
                 
                     </div>
                 </div>
@@ -249,7 +250,7 @@ table thead th {
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Tools</h6>
-                        <a class="collapse-item" href="search_assets.php">search bar</a>
+                        <a class="collapse-item" href="app/controllers/search_assets.php">search bar</a>
                         <a class="collapse-item" href="utilities-border.html">Notification</a>
                         <a class="collapse-item" href="import_export/import_assets.php">Export/Import CSV</a>
                         
@@ -332,7 +333,7 @@ table thead th {
                     </button>
 
                    <!-- // Topbar Search
-                    <form action="search_assets.php" method="GET"
+                    <form action="app/controllers/search_assets.php" method="GET"
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                       
                         <div class="input-group">
@@ -383,7 +384,7 @@ table thead th {
                     
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="search_assets.php" id="searchDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="app/controllers/search_assets.php" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
@@ -589,7 +590,7 @@ table thead th {
                          
                      
                         <div class="col-xl-3 col-md-6 mb-4">
-                          <a href="approval_request_list.php" ><div class="card border-left-success shadow h-100 py-2">
+                          <a href="app/approval/approval_request_list.php" ><div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body" >
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -836,7 +837,7 @@ style="width:380px;  height:280px; margin-top:50px;  ">table</div>
                                             <div class="dropdown-header">Dropdown Header:</div>
                                              
                                             <a class="dropdown-item" href="DASHBOARD/form_assetnum.php">Add</a>
-                                            <a class="dropdown-item" href="assignment_log.php">Assigned</a>
+                                            <a class="dropdown-item" href="app/logs/assignment_log.php">Assigned</a>
                                             <a class="dropdown-item" href="#">not-Assigned</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Spar</a>
@@ -853,7 +854,9 @@ style="width:380px;  height:280px; margin-top:50px;  ">table</div>
 
                             
                             <div style="margin-right: 14rem;">
-            <?php include'view_assets.php' ?></div>
+            <?php header("Location: view_assets.php");
+
+ ?></div>
 
             <?php
 $conn = mysqli_connect("localhost", "root", "", "assets_db");

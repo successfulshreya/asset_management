@@ -6,7 +6,7 @@ session_start();
 //   header("location:dashboard.php");
 //   exit();
 // }
-include('./config.php');
+include('./config/config.php');
 
 $error = "";
 

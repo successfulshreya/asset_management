@@ -1,6 +1,6 @@
 <?php
 // Include database configuration file
-include __DIR__ . '/../config.php';
+require_once __DIR__ . '/../../config/config.php';
 
 // Start the session to access session variables (like user role)
 session_start();

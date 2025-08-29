@@ -1,6 +1,7 @@
 <?php  
+include $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
 
-include 'config.php';
+// include 'config/config.php';
 
 
 $query= "SELECT * FROM assets";

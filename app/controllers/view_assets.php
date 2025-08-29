@@ -1,5 +1,6 @@
 <?php
-include 'config.php';
+// include 'config/config.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
 $result = mysqli_query($conn, "SELECT * FROM assets");
 ?>
 

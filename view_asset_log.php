@@ -1,6 +1,6 @@
 <!-- i think this is not useful AND EXTRA FILE  -->
 <?php
-include 'config.php';
+include 'config/config.php';
 
 if (!isset($_GET['asset_id'])) {
     echo "Asset ID missing";
@@ -76,7 +76,7 @@ $result = mysqli_stmt_get_result($stmt);
     </table>
   </div>
   <div style="text-align:center; margin-top:20px;">
-    <button style="background-color:sky; color:#f4f7f8; margin:0.1rem; padding:0.2rem;"><a href="assignment_log.php">Back to Assignment Log</a></button>
+    <button style="background-color:sky; color:#f4f7f8; margin:0.1rem; padding:0.2rem;"><a href="app/logs/assignment_log.php">Back to Assignment Log</a></button>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

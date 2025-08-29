@@ -4,7 +4,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-include 'config.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = $_SESSION['role'] ?? '';
@@ -24,10 +25,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute();
             $stmt->close();
 
+            // echo "<script>
+            //         alert('Changes submitted for admin approval!');
+            //         window.location.href = 'AMSseml/assets_list.php';
+            //       </script>";
             echo "<script>
-                    alert('Changes submitted for admin approval!');
-                    window.location.href = 'assets_list.php';
-                  </script>";
+            alert('Changes submitted for admin approval');
+             window.location.href = '/AMSseml/assets_list.php';
+            </script>";
+        exit;
+
             exit;
         }
 

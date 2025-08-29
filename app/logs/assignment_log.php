@@ -1,6 +1,6 @@
 <?php
 
-include 'config.php';
+require_once __DIR__ . '/../../config/config.php';
 
 $query = "SELECT * FROM asset_assignments ORDER BY assigned_date DESC";
 $result = mysqli_query($conn, $query);

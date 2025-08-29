@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../config.php';
+include __DIR__ . '/../config/config.php';
 
 $query="SELECT * FROM `asset_categories` LIMIT 5";
 $result=mysqli_query($conn,$query);

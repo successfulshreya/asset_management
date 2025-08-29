@@ -1,9 +1,9 @@
 <?php
-include './config.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
+
+
+
 session_start();
-
-
-
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
   if(empty($_POST['id'])){

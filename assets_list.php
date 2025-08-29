@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
 $sql = "SELECT * FROM assets";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -96,7 +96,7 @@ $result = mysqli_query($conn, $sql);
               </tr>
             </thead>
             <tbody>
-              <?php include 'fetch_assets.php'; ?>
+              <?php include 'app/controllers/fetch_assets.php'; ?>
             </tbody>
           </table>
         </div>
@@ -105,8 +105,8 @@ $result = mysqli_query($conn, $sql);
   </div>
 
   <div class="btn-container">
-    <a href="add_asset.php" class="btn-custom">Add New Asset</a>
-    <a href="edit_asset.php" class="btn-custom">Edit Asset</a>
+    <a href="app/controllers/add_asset.php" class="btn-custom">Add New Asset</a>
+    <a href="app/controllers/edit_asset.php" class="btn-custom">Edit Asset</a>
   </div>
 
   <footer class="sticky-footer bg-white">

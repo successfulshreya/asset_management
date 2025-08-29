@@ -2,10 +2,10 @@
 
 
 // 1. Include config.php correctly using __DIR__
-require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../config/config.php';
 
 
-// 2. Database connection (ideally configured inside config.php)
+// 2. Database connection (ideally configured inside config/config.php)
 $host   = "localhost";
 $user   = "root";
 $password = "";

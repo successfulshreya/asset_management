@@ -1,6 +1,6 @@
  <?php
  
-include 'config.php'; // should define $conn (mysqli or PDO)
+include 'config/config.php'; // should define $conn (mysqli or PDO)
 
 // Ensure form submission and file upload
 if (isset($_POST['import'])) {

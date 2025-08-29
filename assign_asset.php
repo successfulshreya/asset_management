@@ -1,6 +1,6 @@
 <?php
-include 'config.php';
-include 'assignment_log.php';
+include 'config/config.php';
+include 'app/logs/assignment_log.php';
 
 if($_SERVER['REQUEST_METHOD']=="POST"){
     $asset_id =$_POST['asset_id'];

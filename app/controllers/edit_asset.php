@@ -1,6 +1,9 @@
 <?php
-require 'require_login.php';
-include 'config.php';
+// require __DIR__ . '/../../config/require_login.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/require_login.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
+
+// include 'config/config.php';
 
 $id = null;
 $row = null;
@@ -18,12 +21,12 @@ if (isset($_GET['id']) ) {
     if ($result ) {
         $row = mysqli_fetch_assoc($result);
     } else {
-        header("Location: view_assets.php");
+        header("Location:view_assets.php");
         exit;
     }
     mysqli_stmt_close($stmt);
 } else {
-    header("Location: view_assets.php");
+    header("Location:view_assets.php");
     exit;
 }
 
@@ -253,12 +256,12 @@ $log_query = "INSERT INTO asset_logs(asset_id, action_type,
     <a href="view_assets.php" class="btn btn-secondary mt-4 ms-2">Cancel</a> -->
       <?php
   if(($_SESSION['role'] ?? '')==='sub_admin'): ?>
-  <button type="submit">submit for Approval</button>
+  <button type="submit">submit for Approval </button>
+  
   <?php else: ?>
   <button type="submit">save</button>
-  
-  <?php endif; 
-    ?>
+         
+  <?php endif; ?>
     <a href="view_assets.php" class="btn btn-secondary mt-4 ms-2 ">Cancel</a>
   </form>
 </div>

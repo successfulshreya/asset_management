@@ -1,6 +1,20 @@
 
 <?php
-include 'config.php';
+session_start();
+
+$path = __DIR__ . '/../../config/config.php';
+echo "Looking for config at: $path<br>";
+
+if (file_exists($path)) {
+    require_once $path;
+    echo "Config included successfully!<br>";
+} else {
+    die("Error: Config not found at $path");
+}
+
+// Now $conn should be defined — continue delete logic...
+
+
 if (!isset($_GET['id'])) {
     header("Location: assets_list.php");
     exit;
