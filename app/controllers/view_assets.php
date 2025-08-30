@@ -36,8 +36,8 @@ $result = mysqli_query($conn, "SELECT * FROM assets");
           <td><?= htmlspecialchars($row['employee_id']) ?></td>
           <td><?= htmlspecialchars($row['ip_address']) ?></td>
           <td>
-          <a href="edit_asset.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
-          <a href="delete_asset.php?id=<?= $row['id'] ?>"
+          <a href="app/controllers/edit_asset.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
+          <a href="app/controllers/delete_asset.php?id=<?= $row['id'] ?>"
                class="btn btn-sm btn-danger ms-2"
                onclick="return confirm('Are you sure you want to delete this asset?');">
               Delete
@@ -52,3 +52,7 @@ $result = mysqli_query($conn, "SELECT * FROM assets");
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
+
+

@@ -82,14 +82,14 @@ if (isset($_POST['import'])) {
             '$laptop_adaptor_serial_number', '$date_of_issue', '$po_number', '$vendor_name',
            '$Warranty_status', '$amc', '$created_at;"
 
-           mysqli_query($conn,$query);
+        //    mysqli_query($conn,$query);
 
     
     fclose($file);
     echo "<script>alert('Import successful!'); 
     window.location.href='asset_list.php'; 
     </script>";
- else {
+//  else {
     echo 'Please upload a file.';
 }
     

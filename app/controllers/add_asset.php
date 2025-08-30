@@ -1,8 +1,6 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
 
-
-
 session_start();
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -13,6 +11,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
      $_POST['id']="$random";
   }
 
+
+$page = $_GET['page'] ?? 'page1';
+$allowed = ['page1', 'page2'];
+if (in_array($page, $allowed)) {
+  include "$page.php";
+} else {
+  echo 'Page not found.';
+}
+
+ 
 $id = $_POST['id'];
 $user_name = $_POST['user_name'];
 $designation = $_POST['category'];
@@ -110,6 +118,7 @@ INSERT INTO assets (
 
 //     var_dump($_POST);
 // exit;
+
 }
 
 
@@ -127,6 +136,10 @@ INSERT INTO assets (
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
 
 <form action="add_asset.php" method="POST" class="container my-5">
   <!-- User Info Section -->
@@ -362,3 +375,12 @@ INSERT INTO assets (
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

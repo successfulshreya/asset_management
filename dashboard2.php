@@ -1,15 +1,7 @@
 <?php
 
 include("config/config.php");
-// //secure
-// if(!isset($_SESSION['username'])){
-//     header("Location: admin_login.php");
-//     exit();
-// }
-// //for disabling browser cache
-// header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-// header("Cache-Control: post-check=0, pre-check=0", false);
-// header("Pragma: no-cache");
+
 
 //role check  
  session_start();
@@ -133,7 +125,9 @@ table thead th {
 
 </style>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body style="background-color: #e6f0faff;"  id="page-top">
@@ -210,20 +204,13 @@ table thead th {
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Asset Components:</h6>
                       
-                 <a href="#"  data-page="app/controllers/add_asset.php" class="collapse0 collapse-item ">add asset</a>
-                 <a href="#"  data-page="app/logs/asset_logbook.php" class="collapse0 collapse-item">Asset_logbook</a>
-                 <!-- <a href="#"  data-page="#" class="collapse0 collapse-item">filter/SortbyType</a> -->
-                 <a href="#"  data-page="app/controllers/edit_asset.php" class="collapse0 collapse-item">update assets</a>
-                 <a href="#"  data-page="assign_asset.php" class="collapse0 collapse-item">assign asset</a> 
-                 <a href="#"  data-page="app/approval/approval_request_list.php" class="collapse0 collapse-item">APPROVE asset</a>
-
-
-                 <!-- <a class="collapse-item" href="app/controllers/view_assets.php">veiw all assets</a>
-                 <a class="collapse-item" href="app/logs/asset_logbook.php">Asset_logbook </a>
-                 <a class="collapse-item" href="Software.html">Filter/SortbyType</a>
-                 <a class="collapse-item" href="app/controllers/edit_asset.php">update asset</a>
-                 <a class="collapse-item" href="assign_asset.php">Assign asset</a>
-                 <a class="collapse-item" href="app/approval/approval_request_list.php">APPROVE asset</a> -->
+                            <a class="collapse-item" href="app/controllers/add_asset.php">add asset</a>
+                            <a class="collapse-item" href="Location: app/controllers/view_assets.php">veiw all assets</a>
+                      <a class="collapse-item" href="app/logs/asset_logbook.php">Asset_logbook </a>
+                        <a class="collapse-item" href="Software.html">Filter/SortbyType</a>
+                          <a class="collapse-item" href="app/controllers/edit_asset.php">update asset</a>
+                            <a class="collapse-item" href="assign_asset.php">Assign asset</a>
+                             <a class="collapse-item" href="app/approval/approval_request_list.php">APPROVE asset</a>
                 
                     </div>
                 </div>
@@ -568,7 +555,7 @@ table thead th {
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid" id="super">
+                <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4 ">
@@ -577,347 +564,7 @@ table thead th {
                                <i class="fa-solid fa-report fa-3x text-gray-300"></i> Generate Report</a>
                     </div>
 
-                    <!-- Content Row -->
-                    <div class="row">
- 
-                        <div class="col-xl-3 col-md-6 mb-4" >
-                            <a href=assets_list.php> <div  class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Assets</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                                <i class="fa-solid fa-assets fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div></a>
-                        </div>
-                         
-                     
-                        <div class="col-xl-3 col-md-6 mb-4">
-                          <a href="app/approval/approval_request_list.php" ><div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body" >
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            DESKTOP</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
-                                        </div>
-                                        <div class="col-auto">
-                                                <i class="fa-solid fa-desktop fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </a>
-                        </div>
-
                     
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                CPU</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
-                                        </div>
-                                        <div class="col-auto">
-                                                <i class="fa-solid fa-box fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                           <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                PRINTER</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
-                                        </div>
-                                        <div class="col-auto">
-                                                <i class="fa-solid fa-print fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                           <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                keyboard</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
-                                        </div>
-                                        <div class="col-auto">
-                                                <i class="fa-solid fa-keyboard fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                           <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                MOUSE</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
-                                        </div>
-                                        <div class="col-auto">
-                                                 <i class="fa-solid fa-mouse fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                MONITOR</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
-                                        </div>
-                                        <div class="col-auto">
-                                          <i class="fa-solid fa-tv  fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                LAPTOP</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">60</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fa-solid fa-laptop fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--report  Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div  class="card-body">
-                                   
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Reports
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-<!-- <div style="display:flex; justify-content:space-evenly">
-<div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-style="width:380px;  height:280px; margin-top:50px;">table</div>
-
-<div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-style="width:380px;  height:280px; margin-top:50px;">table</div>
-
-
-<div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded"
-style="width:380px;  height:280px; margin-top:50px;  ">table</div>
-
-</div> -->
-                    
-                    <!-- Content Row -->
-
-
-                    <div class="row" >
-
- <!-- Area Chart -->
-
-
-
-     <div class="col-xl-8 col-lg-7" style="margin-right: 14rem;">
-        <div class="card shadow mb-4" style="width:100%";>
-            <!-- Card Header - Dropdown -->
-            
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Assets Overview</h6>
-        <table class="table table-striped">  
-      <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Company</th>
-                <th scope="col" class="dropdown no-arrow">
-                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Asset
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                       
-                        <a class="dropdown-item" href="DASHBOARD/form_assetnum.php">Add new asset</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </th>
-                                    
-                   <th scope="col" class="dropdown no-arrow">
-                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Assigned
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="assign_asset.php">Assign</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-            </tr>
-      </thead>
-      <tbody>
-             <tr>
-                  <th scope="row">1</th>
-                  <td>Sarda Energy and Minerals ltd</td>
-                  <td><a class="dropdown-item" href="DASHBOARD/Asset_Categories.php">700</a></td>
-                  <td><a class="dropdown-item" href="assets_list.php">194</a></td>
-            </tr>
-            <tr>
-                  <th scope="row">2</th>
-                  <td>Sarda Global Trading DMCC</td>
-                  <td>200</td>
-                  <td>194</td>
-            </tr>
-        
-            <?php include'DASHBOARD/fetch.php' ?>
-      </tbody>
-    
-                        </table>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLinks"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLinks">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                             
-                                            <a class="dropdown-item" href="DASHBOARD/form_assetnum.php">Add</a>
-                                            <a class="dropdown-item" href="app/logs/assignment_log.php">Assigned</a>
-                                            <a class="dropdown-item" href="#">not-Assigned</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Spar</a>
-                                            <a class="dropdown-item" href="#">Scrap</a>
-                                        </div>
-                                    </div>
-                               
-                                </div><a class="btn btn-primary" type="submit" class="btn btn-primary mt-2"
-                                 href="DASHBOARD/view_all.php">view all</a></div>
-                                
-                                </div> 
-                            </div>
-    <div style="margin-right: 14rem;"> 
-             <?php include 'app/controllers/view_assets.php';?>
-            </div>
-
-            <?php
-$conn = mysqli_connect("localhost", "root", "", "assets_db");
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$search = '';
-if (isset($_GET['query'])) {
-    $search = mysqli_real_escape_string($conn, $_GET['query']);
-    $sql = "SELECT * FROM assets
-            WHERE CONCAT_WS(' ',
-                user_name, department, device_type,
-                employee_id, monitor_serial_number,
-                ip_address, email_id
-            ) LIKE '%$search%'";
-    $result = mysqli_query($conn, $sql);
-}
-?>
-
-<div>
-            <?php include'DASHBOARD/Asset_Categories.php' ?></div>
-
-                        </div>
-
-
-
-                        <!-- Pie Chart -->
-                         <div style="margin-right: 14rem;">
-                        <div class="col-xl-4 col-lg-5" >
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <!-- <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between " > -->
-                                    <!-- <h6 class="m-0 font-weight-bold text-primary">Sources</h6> -->
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     
                     <!-- Content Row -->
                     <div class="row">
@@ -928,7 +575,39 @@ if (isset($_GET['query'])) {
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                            
-                                    
+                                     <ul>
+    <li><a href="javascript:loadContent('page1')">Page 1</a></li>
+    <li><a href="javascript:loadContent('page2')">Page 2</a></li>
+  </ul>
+
+  <div id="content" style="min-height:300px;">Loading...</div>
+
+  <script>
+    function loadContent(page) {
+      $.ajax({
+        url: 'includes.php',
+        data: { page },
+        success: function(response) {
+          $('#content').html(response);
+        },
+        error: function() {
+          $('#content').html('Failed to load content.');
+        }
+      });
+    }
+
+    // Optionally load a default page
+    loadContent('page1');
+  </script>
+
+
+
+
+
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -1043,45 +722,57 @@ $(document).ready(function(){
 
 <!-- search -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-<!-- 
- <script>
-$(document).ready(function() {
-  $('.collapse0').click(function(e) {
-    e.preventDefault();
-    var page = $(this).data('page'); // 'file1.php' jaise
-    $('#super').load(page, function(response, status, xhr) {
-      if (status === "error") {
-        $('#super').html("Error loading content: " + xhr.statusText);
-      }
-    });
-  });
-});
-</script> -->
-
-
-<!-- jQuery CDN — ensure ye include ho -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script>
-$(document).ready(function() {
-  $('.collapse0').click(function(e) {
-    e.preventDefault(); // Page reload rokega
-
-    var targetFile = $(this).data('page'); // e.g., "app/controllers/add_asset.php"
-
-    $('#super').load(targetFile, function(response, status, xhr) {
-      if (status === "error") {
-        $('#super').html("Error loading content: " + xhr.statusText);
-      }
-    });
-  });
-});
-</script>
-
-
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body> -->
+  <!-- <ul>
+    <li><a href="javascript:loadContent('page1')">Page 1</a></li>
+    <li><a href="javascript:loadContent('page2')">Page 2</a></li>
+  </ul> -->
+
+  <div id="content" style="min-height:300px;">Loading...</div>
+
+  <!-- <script>
+    function loadContent(page) {
+      $.ajax({
+        url: 'includes.php',
+        data: { page },
+        success: function(response) {
+          $('#content').html(response);
+        },
+        error: function() {
+          $('#content').html('Failed to load content.');
+        }
+      });
+    }
+
+    // Optionally load a default page
+    loadContent('page1');
+  </script> -->
+</body>
+</html>
+
+
+<?php
+$page = $_GET['page'] ?? 'page1';
+$allowed = ['page1', 'page2'];
+if (in_array($page, $allowed)) {
+  include "$page.php";
+} else {
+  echo 'Page not found.';
+}

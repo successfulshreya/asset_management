@@ -42,7 +42,7 @@ $result = mysqli_query($conn, $sql);
                         <!-- <td><?= $row['asset_id'] ?></td> -->
                         <!-- <td><?= htmlspecialchars($row['requested_by']) ?></td> -->
             <td>
-  <a href="review_request.php?id=<?= $row['id'] ?>" class="btn btn-primary btn-sm">Review</a>
+  <a href="app/approval/review_request.php?id=<?= $row['id'] ?>" class="btn btn-primary btn-sm">Review</a>
 </td>
 
                     <td>
