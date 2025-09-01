@@ -57,29 +57,44 @@
       </tr>
     </thead>
     <tbody>
-      <?php
-        require_once __DIR__ . '/../../config/config.php';
+     <?php
+require_once __DIR__ . '/../../config/config.php';
 
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $result = mysqli_query($conn,
-          "SELECT * FROM asset_logs ORDER BY changed_on DESC"
-        );
-        if (!$result) {
-          die("Query failed on asset_logbook.php: " . mysqli_error($conn));
-        }
-        while ($row = mysqli_fetch_assoc($result)): 
-      ?>
-        <tr>
-          <!-- <td><?= htmlspecialchars($row['id']) ?></td> -->
-          <td><?= htmlspecialchars($row['asset_id']) ?></td>
-          <td><?= htmlspecialchars($row['action_type']) ?></td>
-          <td><pre><?= htmlspecialchars($row['old_data']) ?></pre></td>
-          <td><pre><?= htmlspecialchars($row['new_data']) ?></pre></td>
-          <td><?= htmlspecialchars($row['changed_by']) ?></td>
-          <td><?= htmlspecialchars($row['change_reason']) ?></td>
-          <td><?= htmlspecialchars($row['changed_on']) ?></td>
-        </tr>
-      <?php endwhile; ?>
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$result = mysqli_query($conn,
+  "SELECT * FROM asset_logs ORDER BY asset_id ASC, changed_on DESC"
+);
+
+if (!$result) {
+  die("Query failed on asset_logbook.php: " . mysqli_error($conn));
+}
+
+$logs_by_asset = [];
+
+while ($row = mysqli_fetch_assoc($result)) {
+  $logs_by_asset[$row['asset_id']][] = $row;
+}
+
+foreach ($logs_by_asset as $asset_id => $logs):
+?>
+  <tr>
+    <td colspan="7" style="background-color:#dfefff; font-weight:bold;">
+      Asset ID: <?= htmlspecialchars($asset_id) ?>
+    </td>
+  </tr>
+  <?php foreach ($logs as $row): ?>
+    <tr>
+      <td><?= htmlspecialchars($row['asset_id']) ?></td>
+      <td><?= htmlspecialchars($row['action_type']) ?></td>
+      <td><pre><?= htmlspecialchars($row['old_data']) ?></pre></td>
+      <td><pre><?= htmlspecialchars($row['new_data']) ?></pre></td>
+      <td><?= htmlspecialchars($row['changed_by']) ?></td>
+      <td><?= htmlspecialchars($row['change_reason']) ?></td>
+      <td><?= htmlspecialchars($row['changed_on']) ?></td>
+    </tr>
+  <?php endforeach; ?>
+<?php endforeach; ?>
+
     </tbody>
   </table>
 </body>

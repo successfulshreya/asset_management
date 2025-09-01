@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //       </script>";
             echo "<script>
             alert('Changes submitted for admin approval');
-             window.location.href = '/AMSseml/assets_list.php';
+             window.location.href = 'http://localhost:8080/AMSseml/assets_list.php';
             </script>";
         exit;
 
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             echo "<script>
                     alert('Asset updated successfully by admin!');
-                    window.location.href = 'assets_list.php';
+                    window.location.href = 'http://localhost:8080/AMSseml/assets_list.php';
                   </script>";
             exit;
         }

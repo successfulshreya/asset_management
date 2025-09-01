@@ -31,14 +31,13 @@ if (isset($_GET['id']) ) {
 }
 
 // INSTERTING LOG ENTERY AFTER UPDATE
+
 $log_query = "INSERT INTO asset_logs(asset_id, action_type,
  old_data, new_data, changed_by, change_reason)
   VALUES ('$id','$update','$old_data_json','$new_data_json','admin','$change_reason')";
                               
  mysqli_query($conn,$log_query);
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -263,6 +262,10 @@ $log_query = "INSERT INTO asset_logs(asset_id, action_type,
          
   <?php endif; ?>
     <a href="view_assets.php" class="btn btn-secondary mt-4 ms-2 ">Cancel</a>
+
+
+  
+  
   </form>
 </div>
 

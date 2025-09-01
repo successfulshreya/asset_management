@@ -61,8 +61,9 @@ $result = mysqli_query($conn, $sql);
     /* 1. Card Enhancements */
     .shadow-img{
         width: 300px;
-        border-radius:10px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+        border-radius:16px;
+       
+        box-shadow: 0 16px 16px rgba(10, 10, 10, 0.25);
     }
 .card {
   border-radius: 0.65rem;
@@ -151,7 +152,7 @@ table thead th {
                     <i class=""></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">
-                <img src="public/sardalogo.jpg" alt="company logo" style="height:6rem; width:14rem; "class="shadow-img">
+                <img src="public/sardalogo.jpg" alt="company logo" style="height:4.5rem; width:13rem; margin-top:2rem; padding-top:0.2rem; "class="shadow-img">
                 <br>
                 <br>SEML Manage Assets</div>
             </a>
@@ -213,17 +214,9 @@ table thead th {
                  <a href="#"  data-page="app/controllers/add_asset.php" class="collapse0 collapse-item ">add asset</a>
                  <a href="#"  data-page="app/logs/asset_logbook.php" class="collapse0 collapse-item">Asset_logbook</a>
                  <!-- <a href="#"  data-page="#" class="collapse0 collapse-item">filter/SortbyType</a> -->
-                 <a href="#"  data-page="app/controllers/edit_asset.php" class="collapse0 collapse-item">update assets</a>
+                 <!-- <a href="#"  data-page="app/controllers/edit_asset.php" class="collapse0 collapse-item">update assets</a> -->
                  <a href="#"  data-page="assign_asset.php" class="collapse0 collapse-item">assign asset</a> 
                  <a href="#"  data-page="app/approval/approval_request_list.php" class="collapse0 collapse-item">APPROVE asset</a>
-
-
-                 <!-- <a class="collapse-item" href="app/controllers/view_assets.php">veiw all assets</a>
-                 <a class="collapse-item" href="app/logs/asset_logbook.php">Asset_logbook </a>
-                 <a class="collapse-item" href="Software.html">Filter/SortbyType</a>
-                 <a class="collapse-item" href="app/controllers/edit_asset.php">update asset</a>
-                 <a class="collapse-item" href="assign_asset.php">Assign asset</a>
-                 <a class="collapse-item" href="app/approval/approval_request_list.php">APPROVE asset</a> -->
                 
                     </div>
                 </div>
@@ -341,25 +334,8 @@ table thead th {
                         <i class="fa fa-bars"></i>
                     </button>
 
-                   <!-- // Topbar Search
-                    <form action="app/controllers/search_assets.php" method="GET"
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                      
-                        <div class="input-group">
-                            <input type="text" name="query" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">
-                                  <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> -->
-
-
-
                  <form action="" class="input-group mb-4" method="GET" autocomplete="off">
-    <input type="text" id = "searchBox" name="query" class="form-control bg-light boarder-0 small" placeholder="Search assets by name,ip...etc." value="<?= htmlspecialchars($search) ?>">
+    <input type="text" id = "searchBox" name="query" class="form-control bg-light boarder-0 small" placeholder="Search " value="<?= htmlspecialchars($search) ?>">
     <div id= "result"
      class="posible-absolute"></div>
     <!-- <button class="btn btn-primary" type="submit">Search</button> -->
@@ -860,7 +836,51 @@ style="width:380px;  height:280px; margin-top:50px;  ">table</div>
                                 </div> 
                             </div>
     <div style="margin-right: 14rem;"> 
-             <?php include 'app/controllers/view_assets.php';?>
+            
+              <?php
+// include 'config/config.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
+$result = mysqli_query($conn, "SELECT * FROM assets");
+?>
+
+
+<div class="container my-5">
+  <h2 class="mb-4">All Assets</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead class="table-light">
+        <tr>
+          <th>User Name</th>
+          <th>Department</th>
+          <th>Asset ID</th>
+          <th>Employee ID</th>
+          <th>IP Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php while($row = mysqli_fetch_assoc($result)): ?>
+        <tr>
+          <td><?= htmlspecialchars($row['user_name']) ?></td>
+          <td><?= htmlspecialchars($row['department']) ?></td>
+          <td><?= htmlspecialchars($row['id']) ?></td>
+          <td><?= htmlspecialchars($row['employee_id']) ?></td>
+          <td><?= htmlspecialchars($row['ip_address']) ?></td>
+          <td>
+          <a href="app/controllers/edit_asset.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
+          <a href="app/controllers/delete_asset.php?id=<?= $row['id'] ?>"
+               class="btn btn-sm btn-danger ms-2"
+               onclick="return confirm('Are you sure you want to delete this asset?');">
+              Delete
+            </a>
+          </td>
+        </tr>
+      <?php endwhile; ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+
             </div>
 
             <?php
@@ -1045,23 +1065,6 @@ $(document).ready(function(){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
-
-<!-- 
- <script>
-$(document).ready(function() {
-  $('.collapse0').click(function(e) {
-    e.preventDefault();
-    var page = $(this).data('page'); // 'file1.php' jaise
-    $('#super').load(page, function(response, status, xhr) {
-      if (status === "error") {
-        $('#super').html("Error loading content: " + xhr.statusText);
-      }
-    });
-  });
-});
-</script> -->
-
-
 <!-- jQuery CDN — ensure ye include ho -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -1080,8 +1083,6 @@ $(document).ready(function() {
   });
 });
 </script>
-
-
 </body>
 
 </html>
