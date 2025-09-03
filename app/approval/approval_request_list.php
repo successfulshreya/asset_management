@@ -46,7 +46,8 @@ $result = mysqli_query($conn, $sql);
 </td>
 
                     <td>
-                        <form method="post" action="process_aproval.php" style="display:inline;">
+     
+                        <form method="post" action="http://localhost:8080/AMSseml/app/approval/process_aproval.php" style="display:inline;">
                                 <input type="hidden" name="request_id" value="<?= $row['id'] ?>">
                                 <button type="submit" name="action" value="approve" class="btn btn-success btn-sm">Approve</button>
                                 <button type="submit" name="action" value="reject" class="btn btn-danger btn-sm">Reject</button>

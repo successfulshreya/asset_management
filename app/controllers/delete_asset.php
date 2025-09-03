@@ -40,7 +40,7 @@ if ($stmt->error) {
     exit("Delete error: " . $stmt->error);
 }
 if ($stmt->affected_rows === 1) {
-    header("Location: assets_list.php");
+    header("Location:http://localhost:8080/AMSseml/assets_list.php");
 } else {
     exit("No asset deleted; id not found or already removed.");
 }

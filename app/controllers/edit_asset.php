@@ -32,11 +32,11 @@ if (isset($_GET['id']) ) {
 
 // INSTERTING LOG ENTERY AFTER UPDATE
 
-$log_query = "INSERT INTO asset_logs(asset_id, action_type,
- old_data, new_data, changed_by, change_reason)
-  VALUES ('$id','$update','$old_data_json','$new_data_json','admin','$change_reason')";
+// $log_query = "INSERT INTO asset_logs(asset_id, action_type,
+//  old_data, new_data, changed_by, change_reason)
+//   VALUES ('$id','$update','$old_data_json','$new_data_json','admin','$change_reason')";
                               
- mysqli_query($conn,$log_query);
+//  mysqli_query($conn,$log_query);
 ?>
 
 <!DOCTYPE html>

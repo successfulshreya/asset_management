@@ -38,50 +38,81 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
+
+
+
         if ($role === 'admin') {
-            // Define the exact fields to be updated
-            $fields = [
-                'user_name','designation','department','employee_id',
-                'email_id','mobile_number','location','sub_location',
-                'mac_id','ip_address','network_type','device_type',
-                'pc_name','cpu_make','cpu_model','cpu_serial_number',
-                'Processor','Gen','RAM','bit','os','HDD','SDD',
-                'monitor_make','monitor_model','monitor_serial_number',
-                'printer_scanner_Type','printer_scanner_make',
-                'printer_scanner_model','printer_scanner_serial_number',
-                'keyboard_make','keyboard_model','keyboard_serial_number',
-                'mouse_make','mouse_model','mouse_serial_number',
-                'laptop_adaptor_serial_number','date_of_issue','po_number',
-                'vendor_name','warranty_status','AMC','created_at','status'
-            ];
+    $asset_id = $_POST['id'];
 
-            // Build placeholders for SQL dynamically
-            $placeholders = implode(' = ?, ', $fields) . ' = ?';
+    // 1. Fetch old data before update
+    $oldStmt = $conn->prepare("SELECT * FROM assets WHERE id = ?");
+    $oldStmt->bind_param("i", $asset_id);
+    $oldStmt->execute();
+    $oldData = $oldStmt->get_result()->fetch_assoc();
+    $oldStmt->close();
 
-            $sql = "UPDATE assets SET {$placeholders} WHERE id = ?";
-            $stmt = $conn->prepare($sql);
+    // 2. Fields to update
+    $fields = [
+        'user_name','designation','department','employee_id',
+        'email_id','mobile_number','location','sub_location',
+        'mac_id','ip_address','network_type','device_type',
+        'pc_name','cpu_make','cpu_model','cpu_serial_number',
+        'Processor','Gen','RAM','bit','os','HDD','SDD',
+        'monitor_make','monitor_model','monitor_serial_number',
+        'printer_scanner_Type','printer_scanner_make',
+        'printer_scanner_model','printer_scanner_serial_number',
+        'keyboard_make','keyboard_model','keyboard_serial_number',
+        'mouse_make','mouse_model','mouse_serial_number',
+        'laptop_adaptor_serial_number','date_of_issue','po_number',
+        'vendor_name','warranty_status','AMC','created_at','status'
+    ];
 
-            // Collect values in correct order
-            $values = [];
-            foreach ($fields as $field) {
-                $values[] = $_POST[$field] ?? '';
-            }
-            $values[] = $_POST['id'];
+    // 3. Update query
+    $placeholders = implode(' = ?, ', $fields) . ' = ?';
+    $sql = "UPDATE assets SET {$placeholders} WHERE id = ?";
+    $stmt = $conn->prepare($sql);
 
-            // Define types string
-            $types = str_repeat('s', count($values));
+    $values = [];
+    foreach ($fields as $field) {
+        $values[] = $_POST[$field] ?? '';
+    }
+    $values[] = $asset_id;
 
-            $stmt->bind_param($types, ...$values);
-            $stmt->execute();
-            $stmt->close();
+    $types = str_repeat('s', count($values));
+    $stmt->bind_param($types, ...$values);
+    $stmt->execute();
+    $stmt->close();
 
-            echo "<script>
-                    alert('Asset updated successfully by admin!');
-                    window.location.href = 'http://localhost:8080/AMSseml/assets_list.php';
-                  </script>";
-            exit;
-        }
-    } catch (Exception $e) {
+    // 4. Fetch new data after update
+    $newStmt = $conn->prepare("SELECT * FROM assets WHERE id = ?");
+    $newStmt->bind_param("i", $asset_id);
+    $newStmt->execute();
+    $newData = $newStmt->get_result()->fetch_assoc();
+    $newStmt->close();
+
+    // 5. Insert log into asset_logs
+    $logStmt = $conn->prepare("
+        INSERT INTO asset_logs
+            (asset_id, action_type, old_data, new_data, changed_by, change_reason, changed_on)
+        VALUES (?, 'Updated', ?, ?, ?, ?, NOW())
+    ");
+    $old_json = json_encode($oldData, JSON_UNESCAPED_UNICODE);
+    $new_json = json_encode($newData, JSON_UNESCAPED_UNICODE);
+    $changed_by = $_SESSION['username'] ?? 'admin';
+    $reason = $_POST['change_reason'] ?? 'No reason provided';
+
+    $logStmt->bind_param("issss", $asset_id, $old_json, $new_json, $changed_by, $reason);
+    $logStmt->execute();
+    $logStmt->close();
+
+    echo "<script>
+            alert('Asset updated successfully and log recorded!');
+            window.location.href = 'http://localhost:8080/AMSseml/assets_list.php';
+          </script>";
+    exit;
+}
+    } 
+    catch (Exception $e) {
         error_log("Database error: " . $e->getMessage());
         exit("An unexpected error occurred. Please try again later.");
     }

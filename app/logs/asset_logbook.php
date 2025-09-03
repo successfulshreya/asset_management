@@ -88,6 +88,8 @@ foreach ($logs_by_asset as $asset_id => $logs):
       <td><?= htmlspecialchars($row['action_type']) ?></td>
       <td><pre><?= htmlspecialchars($row['old_data']) ?></pre></td>
       <td><pre><?= htmlspecialchars($row['new_data']) ?></pre></td>
+
+
       <td><?= htmlspecialchars($row['changed_by']) ?></td>
       <td><?= htmlspecialchars($row['change_reason']) ?></td>
       <td><?= htmlspecialchars($row['changed_on']) ?></td>

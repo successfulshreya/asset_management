@@ -12,13 +12,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
 
-$page = $_GET['page'] ?? 'page1';
-$allowed = ['page1', 'page2'];
-if (in_array($page, $allowed)) {
-  include "$page.php";
-} else {
-  echo 'Page not found.';
-}
+// $page = $_GET['page'] ?? 'page1';
+// $allowed = ['page1', 'page2'];
+// if (in_array($page, $allowed)) {
+//   include "$page.php";
+// } else {
+//   echo 'Page not found.';
+// }
 
  
 $id = $_POST['id'];
@@ -139,9 +139,10 @@ INSERT INTO assets (
 
 
 
-
-
-<form action="add_asset.php" method="POST" class="container my-5">
+<!-- isse dashoabrd wala kaam kar raha isliye confilt ho raha  haiii!!!!
+<form action="app/controllers/add_asset.php" method="POST" class="container my-5"> -->
+<!-- //isse table wala add button kaaam kar rahaa -->
+<form action="add_asset.php" method="POST" class="container my-5"> 
   <!-- User Info Section -->
   <div class="card mb-4 p-4">
     <h5>User Information</h5>

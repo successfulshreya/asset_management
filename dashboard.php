@@ -211,7 +211,7 @@ table thead th {
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Asset Components:</h6>
                       
-                 <a href="#"  data-page="app/controllers/add_asset.php" class="collapse0 collapse-item ">add asset</a>
+                 <a href="#"  data-page="assets_list.php" class="collapse0 collapse-item ">add asset</a>
                  <a href="#"  data-page="app/logs/asset_logbook.php" class="collapse0 collapse-item">Asset_logbook</a>
                  <!-- <a href="#"  data-page="#" class="collapse0 collapse-item">filter/SortbyType</a> -->
                  <!-- <a href="#"  data-page="app/controllers/edit_asset.php" class="collapse0 collapse-item">update assets</a> -->
@@ -348,7 +348,7 @@ table thead th {
                         searchBox.addEventListener("keyup",function(){
                             let query = this.value;
 
-                            if(query.lengtyh >1){
+                            if(query.length >1){
                                 fetch("search.php?q=" + query).then(response => response.text()).then(data => {
                                     resultDiv.innerHTML = data;
                                 });
