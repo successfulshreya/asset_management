@@ -4,105 +4,95 @@
   <meta charset="UTF-8">
   <title>Asset Log Book</title>
   <style>
-    body { font-family: sans-serif; margin: 1em; }
-
-    /* Table setup: full‑width, fixed layout so columns don’t overflow */
-    table.logbook {
-      width: 100%;
-      border-collapse: collapse; /* removes double borders */
-      table-layout: fixed;        /* ensures consistent column widths */ 
-    }
-    table.logbook th,
-    table.logbook td {
-      border: 1px solid #ddd;
-      padding: 0.5em;
-      vertical-align: top;
-      word-wrap: break-word;
-    }
-    table.logbook th {
-      background-color: #f2f2f2;
-    }
-    table.logbook tr:nth-child(even) {
-      background-color: #fafafa;
-    }
-    table.logbook tr:hover {
-      background-color: #e8f0fe;
-    }
-
-    /* For long OLD_DATA or NEW_DATA JSON strings */
-    td pre {
-      margin: 0;
-      max-height: 6em;
-      overflow: auto;
-      background-color: transparent;
-      font-size: 0.88em;
-      white-space: pre-wrap;     /* wrap long words */
-      word-wrap: break-word;
-    }
+    body { font-family: sans-serif; margin: 1em; background: #f5f7fa; }
+    .search-box { margin-bottom: 1em; padding: 8px; width: 100%; font-size: 1em; }
+    .log-card { background: #fff; border-radius: 10px; margin-bottom: 1em; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 1em; }
+    .log-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: bold; padding: 0.5em 0; }
+    .log-header:hover { color: #007BFF; }
+    .arrow { display: inline-block; transition: transform 0.3s ease; }
+    .rotate { transform: rotate(90deg); }
+    .log-body { display: none; margin-top: 0.5em; border-top: 1px solid #ddd; padding-top: 0.5em; }
+    .json-table { width: 100%; border-collapse: collapse; margin-top: 0.5em; }
+    .json-table th, .json-table td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; }
+    .json-table th { background: #eef; }
   </style>
+  <script>
+    function toggleLog(id) {
+      const card = document.getElementById('log-card-' + id);
+      const body = card.querySelector('.log-body');
+      const arrow = card.querySelector('.arrow');
+      const isOpen = body.style.display === 'block';
+      body.style.display = isOpen ? 'none' : 'block';
+      arrow.classList.toggle('rotate', !isOpen);
+    }
+
+    function filterLogs() {
+      const query = document.getElementById('searchInput').value.toUpperCase();
+      document.querySelectorAll('.log-card').forEach(card => {
+        const text = card.textContent.toUpperCase();
+        card.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    }
+  </script>
 </head>
 <body>
   <h2>Asset Log Book</h2>
-  <table class="logbook">
-    <thead>
-      <tr>
-        <!-- <th>ID</th> -->
-        <th>Asset ID</th>
-        <th>Action</th>
-        <th>Old Data</th>
-        <th>New Data</th>
-        <th>Changed By</th>
-        <th>Reason</th>
-        <th>Changed On</th>
-      </tr>
-    </thead>
-    <tbody>
-     <?php
-require_once __DIR__ . '/../../config/config.php';
+  <input type="text" id="searchInput" class="search-box" placeholder="Search logs..." onkeyup="filterLogs()">
 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$result = mysqli_query($conn,
-  "SELECT * FROM asset_logs ORDER BY asset_id ASC, changed_on DESC"
-);
+  <?php
+    require_once __DIR__ . '/../../config/config.php';
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    $result = mysqli_query($conn, "SELECT * FROM asset_logs ORDER BY asset_id ASC, changed_on DESC");
+    if (!$result) {
+      die("Query failed on asset_logbook.php: " . mysqli_error($conn));
+    }
 
-if (!$result) {
-  die("Query failed on asset_logbook.php: " . mysqli_error($conn));
-}
+    function renderChangedFields($oldJson, $newJson) {
+      $old = json_decode($oldJson, true) ?? [];
+      $new = json_decode($newJson, true) ?? [];
+      if (!is_array($old) || !is_array($new)) {
+        return "<i>No data available</i>";
+      }
+      $changed = [];
+      foreach (array_unique(array_merge(array_keys($old), array_keys($new))) as $key) {
+        $o = $old[$key] ?? null;
+        $n = $new[$key] ?? null;
+        if ($o !== $n) {
+          $changed[$key] = ['old' => $o, 'new' => $n];
+        }
+      }
+      if (empty($changed)) return "<i>No changes</i>";
+      $html = "<table class='json-table'><tr><th>Field</th><th>Old Value</th><th>New Value</th></tr>";
+      foreach ($changed as $field => $vals) {
+        $html .= "<tr><td>{$field}</td><td>" . htmlspecialchars((string)$vals['old']) . "</td><td>" . htmlspecialchars((string)$vals['new']) . "</td></tr>";
+      }
+      $html .= "</table>";
+      return $html;
+    }
 
-$logs_by_asset = [];
+    $i = 1;
+    while ($row = mysqli_fetch_assoc($result)) {
+      $assetId   = htmlspecialchars($row['asset_id']);
+      $action    = htmlspecialchars($row['action_type']);
+      $by        = htmlspecialchars($row['changed_by']);
+      $on        = htmlspecialchars($row['changed_on']);
+      $reason    = htmlspecialchars($row['change_reason']);
 
-while ($row = mysqli_fetch_assoc($result)) {
-  $logs_by_asset[$row['asset_id']][] = $row;
-}
-
-foreach ($logs_by_asset as $asset_id => $logs):
-?>
-  <tr>
-    <td colspan="7" style="background-color:#dfefff; font-weight:bold;">
-      Asset ID: <?= htmlspecialchars($asset_id) ?>
-    </td>
-  </tr>
-  <?php foreach ($logs as $row): ?>
-    <tr>
-      <td><?= htmlspecialchars($row['asset_id']) ?></td>
-      <td><?= htmlspecialchars($row['action_type']) ?></td>
-      <td><pre><?= htmlspecialchars($row['old_data']) ?></pre></td>
-      <td><pre><?= htmlspecialchars($row['new_data']) ?></pre></td>
-
-
-      <td><?= htmlspecialchars($row['changed_by']) ?></td>
-      <td><?= htmlspecialchars($row['change_reason']) ?></td>
-      <td><?= htmlspecialchars($row['changed_on']) ?></td>
-    </tr>
-  <?php endforeach; ?>
-<?php endforeach; ?>
-
-    </tbody>
-  </table>
+      echo "<div class='log-card' id='log-card-$i'>";
+        echo "<div class='log-header' onclick='toggleLog($i)'>";
+          echo "<span>Asset ID: {$assetId} | Action: {$action}</span>";
+          echo "<span class='arrow'>&gt;</span>";
+        echo "</div>";
+        echo "<div class='log-body'>";
+          echo "<p><strong>Changed By:</strong> {$by}</p>";
+          echo "<p><strong>Changed On:</strong> {$on}</p>";
+          echo "<p><strong>Reason:</strong> {$reason}</p>";
+          echo "<h4>Changed Fields</h4>";
+          echo renderChangedFields($row['old_data'], $row['new_data']);
+        echo "</div>";
+      echo "</div>";
+      $i++;
+    }
+  ?>
 </body>
 </html>
-
-
-
-
-<!-- it hold the any change history by who when and where -->

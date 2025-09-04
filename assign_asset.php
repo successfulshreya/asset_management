@@ -19,7 +19,7 @@ $update_query = "UPDATE asset_assignments
     if(mysqli_query($conn, $query)){
         
     if($result){
-        header("Location:assignment_log.php");
+        header("Location:http://localhost:8080/AMSseml/app/logs/assignment_log.php");
         exit();
     }else{
         echo "Error: " . mysqli_error($conn);
@@ -42,9 +42,6 @@ $update_query = "UPDATE asset_assignments
 }
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

@@ -88,9 +88,6 @@ $result = mysqli_query($conn, $sql);
                 <th>Vendor Name</th><th>Date of Issue </th>
                 <th>Warranty Status</th>
                 <th>AMC</th>
-                <th>value 41</th>
-                <th>value 42</th>
-                <th>value 43</th>
                 <th>status</th>
                 <th>Created At</th>
               </tr>

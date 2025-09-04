@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// //agar already login hai to dashboard bhej do 
+//agar already login hai to dashboard bhej do 
 // if (isset($_SESSION['username'])){
 //   header("location:dashboard.php");
 //   exit();

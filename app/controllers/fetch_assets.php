@@ -31,13 +31,13 @@ while($row = mysqli_fetch_assoc($result)){
     echo "<td>".$row['Gen']."</td>";
     echo "<td>".$row['RAM']."</td>";
     echo "<td>".$row['bit']."</td>";
-    echo "<td>".$row['os']."<td>";
+    echo "<td>".$row['os']."</td>";
     echo "<td>".$row['HDD']."</td>";
     echo "<td>".$row['SDD']."</td>";
     echo "<td>".$row['monitor_make']."</td>";
     echo "<td>".$row['monitor_model']."</td>";
     echo "<td>".$row['monitor_serial_number']."</td>";
-    echo "<td>".$row['printer_scanner_Type']."<td>";
+    echo "<td>".$row['printer_scanner_Type']."</td>";
     echo "<td>".$row['printer_scanner_make']."</td>";
     echo "<td>".$row['printer_scanner_model']."</td>";
     echo "<td>".$row['printer_scanner_serial_number']."</td>";
@@ -49,7 +49,7 @@ while($row = mysqli_fetch_assoc($result)){
     echo "<td>".$row['mouse_serial_number']."</td>";
     echo "<td>".$row['laptop_adaptor_serial_number']."</td>";
     echo "<td>".$row['date_of_issue']."</td>";
-    echo "<td>".$row['po_number']."<td>";
+    echo "<td>".$row['po_number']."</td>";
     echo "<td>".$row['vendor_name']."</td>";
     echo "<td>".$row['warranty_status']."</td>";
     echo "<td>".$row['AMC']."</td>";
