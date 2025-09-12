@@ -15,7 +15,7 @@ include("config/config.php");
  session_start();
  if($_SESSION['role']== 'admin'){;
  } elseif (($_SESSION['role']== 'subadmin')) {
-   echo "welcome Sub_aadmin - limited access";
+   echo "welcome Sub_admin - limited access";
  }else{
     echo "welcome employee - access restricted";
  }
@@ -496,9 +496,8 @@ table thead th {
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                        <div class="text-truncate">ugtyurfrfutrfut6f.</div>
+                                        <div class="small text-gray-500">notification· 2w</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
@@ -511,7 +510,9 @@ table thead th {
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['role']; ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                <?php echo $_SESSION['role']; ?>
+                            </span>
                                 <img class="img-profile rounded-circle"
                                     src="assetss/img/undraw_profile.svg">
                             </a>
@@ -838,7 +839,6 @@ style="width:380px;  height:280px; margin-top:50px;  ">table</div>
     <div style="margin-right: 14rem;"> 
             
               <?php
-
 include $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
 $result = mysqli_query($conn, "SELECT * FROM assets");
 ?>
@@ -1087,6 +1087,7 @@ $(document).ready(function() {
   });
 });
 </script>
+
 </body>
 
 </html>
