@@ -761,7 +761,7 @@ style="width:380px;  height:280px; margin-top:50px;  ">table</div>
         <table class="table table-striped">  
       <thead>
             <tr>
-                <th scope="col">#</th>
+                <!-- <th scope="col">#</th> -->
                 <th scope="col">Company</th>
                 <th scope="col" class="dropdown no-arrow">
                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -796,13 +796,13 @@ style="width:380px;  height:280px; margin-top:50px;  ">table</div>
       </thead>
       <tbody>
              <tr>
-                  <th scope="row">1</th>
+                  <!-- <th scope="row">1</th> -->
                   <td>Sarda Energy and Minerals ltd</td>
                   <td><a class="dropdown-item" href="DASHBOARD/Asset_Categories.php">700</a></td>
                   <td><a class="dropdown-item" href="assets_list.php">194</a></td>
             </tr>
             <tr>
-                  <th scope="row">2</th>
+                  <!-- <th scope="row">2</th> -->
                   <td>Sarda Global Trading DMCC</td>
                   <td>200</td>
                   <td>194</td>
@@ -838,12 +838,12 @@ style="width:380px;  height:280px; margin-top:50px;  ">table</div>
     <div style="margin-right: 14rem;"> 
             
               <?php
-// include 'config/config.php';
+
 include $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
 $result = mysqli_query($conn, "SELECT * FROM assets");
 ?>
 
-
+<div style="background-color: #c2ccebff;">
 <div class="container my-5">
   <h2 class="mb-4">All Assets</h2>
   <div class="table-responsive">
@@ -859,6 +859,7 @@ $result = mysqli_query($conn, "SELECT * FROM assets");
         </tr>
       </thead>
       <tbody>
+        
       <?php while($row = mysqli_fetch_assoc($result)): ?>
         <tr>
           <td><?= htmlspecialchars($row['user_name']) ?></td>
@@ -877,12 +878,15 @@ $result = mysqli_query($conn, "SELECT * FROM assets");
         </tr>
       <?php endwhile; ?>
       </tbody>
+      
     </table>
-  </div>
+    <a class="btn btn-primary" type="submit" class="btn btn-primary mt-2" 
+                              style="width: 100%;"   href="assets_list.php">view all</a></div>
+  
 </div>
 
             </div>
-
+    </div>
             <?php
 $conn = mysqli_connect("localhost", "root", "", "assets_db");
 if (!$conn) {
@@ -893,7 +897,7 @@ $search = '';
 if (isset($_GET['query'])) {
     $search = mysqli_real_escape_string($conn, $_GET['query']);
     $sql = "SELECT * FROM assets
-            WHERE CONCAT_WS(' ',
+            WHERE CONCAT_WS(' ',id,
                 user_name, department, device_type,
                 employee_id, monitor_serial_number,
                 ip_address, email_id

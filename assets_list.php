@@ -61,7 +61,7 @@ $result = mysqli_query($conn, $sql);
             <thead>
               <tr>
                 <th>Asset ID</th><th>User Name</th><th>Designation</th>
-                <th>Department</th>
+                <th>Department</th><th>assets uuid</th>
                 <th>Employee ID</th><th>E‑mail ID</th>
                 <th>Mobile Number</th>
                 <th>Location</th>

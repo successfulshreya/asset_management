@@ -3132,3 +3132,168 @@ $(document).ready(function(){
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Define character encoding -->
+  <title>Asset Log Book</title> <!-- Page title shown in the browser tab -->
+  <style>
+    /* Body styling: font, margin, background color */
+    body { font-family: sans-serif; margin: 1em; background: #f5f7fa; }
+
+    /* Search box styling: full width, padding, margin */
+    .search-box { margin-bottom: 1em; padding: 8px; width: 100%; font-size: 1em; }
+
+    /* Styles for log card containers */
+    .log-card { background: #fff; border-radius: 10px; margin-bottom: 1em; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 1em; }
+
+    /* Styles for headers of each log card */
+    .log-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: bold; padding: 0.5em 0; }
+    .log-header:hover { color: #007BFF; } /* Hover effect for interactivity */
+
+    /* Arrow icon that rotates when toggled */
+    .arrow { display: inline-block; transition: transform 0.3s ease; }
+    .rotate { transform: rotate(90deg); }
+
+    /* Hidden body content initially; shows when toggled */
+    .log-body { display: none; margin-top: 0.5em; border-top: 1px solid #ddd; padding-top: 0.5em; }
+
+    /* Table styling for showing JSON differences */
+    .json-table { width: 100%; border-collapse: collapse; margin-top: 0.5em; }
+    .json-table th, .json-table td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; }
+    .json-table th { background: #eef; }
+  </style>
+  <script>
+    /**
+     * Toggles visibility of a specific log's body and rotates the arrow.
+     * @param {number} id - Identifier for the log-card container.
+     */
+    function toggleLog(id) {
+      const card = document.getElementById('log-card-' + id); // Find container by ID
+      const body = card.querySelector('.log-body'); // Get the hidden body section
+      const arrow = card.querySelector('.arrow'); // The arrow to rotate
+      const isOpen = body.style.display === 'block'; // Check current state
+      body.style.display = isOpen ? 'none' : 'block'; // Toggle visibility
+      arrow.classList.toggle('rotate', !isOpen); // Apply rotation to arrow
+    }
+
+    /**
+     * Filters visible logs based on search input.
+     * Hides cards that don't match the query text.
+     */
+    function filterLogs() {
+      const query = document.getElementById('searchInput').value.toUpperCase(); // Getting input
+      document.querySelectorAll('.log-card').forEach(card => {
+        const text = card.textContent.toUpperCase(); // Card text for matching
+        card.style.display = text.includes(query) ? 'block' : 'none'; // Show/hide
+      });
+    }
+  </script>
+</head>
+<body>
+  <h2>Asset Log Book</h2> <!-- Main heading of the page -->
+
+  <!-- Search input triggers filtering on each key press -->
+  <input
+    type="text"
+    id="searchInput"
+    class="search-box"
+    placeholder="Search logs..."
+    onkeyup="filterLogs()"
+  >
+
+  <?php
+  // Load database configuration file (make sure path is correct)
+  require_once __DIR__ . '/../../config/config.php';
+
+  // Enable detailed error reporting for mysqli
+  mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+  // Fetch asset logs sorted by asset_id ascending, then changed_on descending
+  $result = mysqli_query($conn, "SELECT * FROM asset_logs ORDER BY asset_id ASC, changed_on DESC");
+  if (!$result) {
+    die("Query failed on asset_logbook.php: " . mysqli_error($conn)); // Error handling
+  }
+
+  /**
+   * Render only fields that changed between old_data and new_data JSON.
+   * @param string $oldJson -- JSON string before change
+   * @param string $newJson -- JSON string after change
+   * @return string HTML table or message if no change
+   */
+  function renderChangedFields($oldJson, $newJson) {
+    $old = json_decode($oldJson, true) ?? []; // Decode old JSON or empty array
+    $new = json_decode($newJson, true) ?? []; // Decode new JSON or empty array
+    if (!is_array($old) || !is_array($new)) {
+      return "<i>No data available</i>"; // Handle invalid JSON
+    }
+
+    // Compare keys and values to find differences
+    $changed = [];
+    foreach (array_unique(array_merge(array_keys($old), array_keys($new))) as $key) {
+      $o = $old[$key] ?? null;
+      $n = $new[$key] ?? null;
+      if ($o !== $n) {
+        $changed[$key] = ['old' => $o, 'new' => $n];
+      }
+    }
+    if (empty($changed)) {
+      return "<i>No changes</i>"; // Nothing changed
+    }
+
+    // Build HTML table showing changed fields
+    $html = "<table class='json-table'><tr><th>Field</th><th>Old Value</th><th>New Value</th></tr>";
+    foreach ($changed as $field => $vals) {
+      $html .= "<tr><td>" . htmlspecialchars($field) . "</td>"
+            . "<td>" . htmlspecialchars((string)$vals['old']) . "</td>"
+            . "<td>" . htmlspecialchars((string)$vals['new']) . "</td></tr>";
+    }
+    $html .= "</table>";
+    return $html;
+  }
+
+  // Initialize a counter to uniquely identify each log card
+  $i = 1;
+  while ($row = mysqli_fetch_assoc($result)) {
+    // Escape values to prevent XSS
+    $assetId   = htmlspecialchars($row['asset_id']);
+    $action    = htmlspecialchars($row['action_type']);
+    $by        = htmlspecialchars($row['changed_by']);
+    $on        = htmlspecialchars($row['changed_on']);
+    $reason    = htmlspecialchars($row['change_reason']);
+
+    // Start log card container with unique ID
+    echo "<div class='log-card' id='log-card-$i'>";
+
+      // Header: clicking toggles visibility of body
+      echo "<div class='log-header' onclick='toggleLog($i)'>";
+        echo "<span>Asset ID: {$assetId} | Action: {$action}</span>"; // Summary line
+        echo "<span class='arrow'>&gt;</span>"; // Arrow to indicate expandable
+      echo "</div>";
+
+      // Hidden body containing details
+      echo "<div class='log-body'>";
+        echo "<p><strong>Changed By:</strong> {$by}</p>";
+        echo "<p><strong>Changed On:</strong> {$on}</p>";
+        echo "<p><strong>Reason:</strong> {$reason}</p>";
+        echo "<h4>Changed Fields</h4>";
+        echo renderChangedFields($row['old_data'], $row['new_data']); // Differences table
+      echo "</div>";
+
+    echo "</div>"; // End of log card container
+
+    $i++; // Increment counter for next card
+  }
+  ?>
+</body>
+</html>

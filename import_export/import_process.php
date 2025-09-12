@@ -19,7 +19,7 @@ if (isset($_POST['import'])) {
     $employee_id =$data[3];
     $email_id = $data[4];
     $mobile_number = $data[5];
-    $location =data[6];
+    $location =$data[6];
     $mac_id = $data[8];
     $ip_address = $data[9];
     $network_type = $data[10];
@@ -80,18 +80,19 @@ if (isset($_POST['import'])) {
            '$keyboard_make', '$keyboard_model', '$keyboard_serial_number',
             '$mouse_make', '$mouse_model', '$mouse_serial_number',
             '$laptop_adaptor_serial_number', '$date_of_issue', '$po_number', '$vendor_name',
-           '$Warranty_status', '$amc', '$created_at;"
+           '$Warranty_status', '$amc', '$created_at');"
 
         //    mysqli_query($conn,$query);
 
     
-    fclose($file);
+  fclose($file);
     echo "<script>alert('Import successful!'); 
     window.location.href='asset_list.php'; 
     </script>";
-//  else {
+
+ else {
     echo 'Please upload a file.';
-}
+ }
     
 
   ?>

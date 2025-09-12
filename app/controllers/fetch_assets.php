@@ -1,7 +1,7 @@
 <?php  
 include $_SERVER['DOCUMENT_ROOT'] . '/AMSseml/config/config.php';
 
-// include 'config/config.php';
+
 
 
 $query= "SELECT * FROM assets";
@@ -14,6 +14,7 @@ while($row = mysqli_fetch_assoc($result)){
     echo "<td>".$row['user_name']."</td>";
     echo "<td>".$row['designation']."</td>";
     echo "<td>".$row['department']."</td>";
+    echo "<td>".$row['assets_uuid']."</td>";
     echo "<td>".$row['employee_id']."</td>";
     echo "<td>".$row['email_id']."</td>";
     echo "<td>".$row['mobile_number']."</td>";
