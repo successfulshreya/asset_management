@@ -1,3 +1,4 @@
+<!-- asset_logbook.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,25 +71,35 @@
       return $html;
     }
 
-    $i = 1;
+    // Group logs by asset_id
+    $logsByAsset = [];
     while ($row = mysqli_fetch_assoc($result)) {
-      $assetId   = htmlspecialchars($row['asset_id']);
-      $action    = htmlspecialchars($row['action_type']);
-      $by        = htmlspecialchars($row['changed_by']);
-      $on        = htmlspecialchars($row['changed_on']);
-      $reason    = htmlspecialchars($row['change_reason']);
+      $logsByAsset[$row['asset_id']][] = $row;
+    }
 
+    $i = 1;
+    foreach ($logsByAsset as $assetId => $logs) {
+      $safeAssetId = htmlspecialchars($assetId);
       echo "<div class='log-card' id='log-card-$i'>";
         echo "<div class='log-header' onclick='toggleLog($i)'>";
-          echo "<span>Asset ID: {$assetId} | Action: {$action}</span>";
+          echo "<span>Asset ID: {$safeAssetId} | Total Logs: " . count($logs) . "</span>";
           echo "<span class='arrow'>&gt;</span>";
         echo "</div>";
         echo "<div class='log-body'>";
-          echo "<p><strong>Changed By:</strong> {$by}</p>";
-          echo "<p><strong>Changed On:</strong> {$on}</p>";
-          echo "<p><strong>Reason:</strong> {$reason}</p>";
-          echo "<h4>Changed Fields</h4>";
-          echo renderChangedFields($row['old_data'], $row['new_data']);
+          foreach ($logs as $row) {
+            $action = htmlspecialchars($row['action_type']);
+            $by     = htmlspecialchars($row['changed_by']);
+            $on     = htmlspecialchars($row['changed_on']);
+            $reason = htmlspecialchars($row['change_reason']);
+              echo "<div style='margin-bottom:1em;'>";
+              echo "<p><strong>Action:</strong> {$action}</p>";
+              echo "<p><strong>Changed By:</strong> {$by}</p>";
+              echo "<p><strong>Changed On:</strong> {$on}</p>";
+              echo "<p><strong>Reason:</strong> {$reason}</p>";
+              echo "<h4>Changed Fields</h4>";
+              echo renderChangedFields($row['old_data'], $row['new_data']);
+            echo "</div>";
+          }
         echo "</div>";
       echo "</div>";
       $i++;
@@ -96,3 +107,4 @@
   ?>
 </body>
 </html>
+

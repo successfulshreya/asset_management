@@ -211,11 +211,12 @@ table thead th {
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Asset Components:</h6>
                       
-                 <a href="#"  data-page="assets_list.php" class="collapse0 collapse-item ">add asset</a>
-                 <a href="#"  data-page="app/logs/asset_logbook.php" class="collapse0 collapse-item">Asset_logbook</a>
+                 <a href="#"  data-page="assets_list.php" class="collapse0 collapse-item ">Add Asset</a>
+                 <a href="#"  data-page="app/logs/asset_logbook.php" class="collapse0 collapse-item">Asset_Logbook</a>
                  <!-- <a href="#"  data-page="#" class="collapse0 collapse-item">filter/SortbyType</a> -->
                  <!-- <a href="#"  data-page="app/controllers/edit_asset.php" class="collapse0 collapse-item">update assets</a> -->
-                 <a href="#"  data-page="assign_asset.php" class="collapse0 collapse-item">assign asset</a> 
+                 <a href="#"  data-page="assign_asset.php" class="collapse0 collapse-item">Assign asset</a> 
+                 <a href="#"  data-page="app/logs/assignment_log.php" class="collapse0 collapse-item">Assignment LOG</a> 
                  <a href="#"  data-page="app/approval/approval_request_list.php" class="collapse0 collapse-item">APPROVE asset</a>
                 
                     </div>
