@@ -71,7 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         mysqli_commit($conn);
 
         // Redirect after successful assignment
-        header("Location: /AMSseml/app/logs/assignment_log.php");
+        // header("Location: /AMSseml/app/logs/assignment_log.php");
+         header("Location: assets_list.php");
         exit();
 
     } catch (Exception $e) {

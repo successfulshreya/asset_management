@@ -189,9 +189,9 @@ table thead th {
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                       
-                            <a class="collapse-item" href="Assets.html">IT Assets</a>
-                            <a class="collapse-item" href="Assets.html">NON-IT Assets</a>
-                      
+                            <!-- <a class="collapse-item" href="Assets.html">IT Assets</a> -->
+                              <a href="#"  data-page="desktop.php" class="collapse0 collapse-item ">IT Asset</a>
+                           <a href="#"  data-page="desktop.php" class="collapse0 collapse-item ">NON-IT Asset</a>
                         <a class="collapse-item" href="Software.html">Software</a>
                           <a class="collapse-item" href="CMDM.html">CMDM</a>
                           <a class="collapse-item" href="furniture.html">Furniture</a>
@@ -286,6 +286,7 @@ table thead th {
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="DASHBOARD/form_assetnum.php">Add Company</a>
+                         <!-- <a href="#"  data-page="form_assetnum.php" class="collapse0 collapse-item ">Add Company</a> -->
                         <a class="collapse-item" href="DASHBOARD/view_all.php">view_all-companies</a>
                     </div>
                 </div>
@@ -301,7 +302,8 @@ table thead th {
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="assets_list.php">
+                <!-- <a class="nav-link" href="assets_list.php"> -->
+                    <a href="#"  data-page="assets_list.php" class="nav-link collapse0 collapse-item">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
                     
@@ -559,7 +561,9 @@ table thead th {
                     <div class="row">
  
                         <div class="col-xl-3 col-md-6 mb-4" >
-                            <a href=assets_list.php> <div  class="card border-left-primary shadow h-100 py-2">
+                            <!-- <a href=assets_list.php>  -->
+                                <a href="#"  data-page="assets_list.php" class="collapse0 collapse-item ">
+                                <div  class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -577,7 +581,9 @@ table thead th {
                          
                      
                         <div class="col-xl-3 col-md-6 mb-4">
-                          <a href="app/approval/approval_request_list.php" ><div class="card border-left-success shadow h-100 py-2">
+                          <!-- <a href="app/approval/approval_request_list.php" > -->
+                            <a href="#"  data-page="app/approval/approval_request_list.php" class="collapse0 collapse-item ">
+                            <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body" >
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">

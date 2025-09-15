@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -46,5 +45,4 @@ if ($stmt->affected_rows === 1) {
 }
 $stmt->close();
 $conn->close();
-
 

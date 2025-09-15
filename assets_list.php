@@ -103,6 +103,7 @@ $result = mysqli_query($conn, $sql);
 
   <div class="btn-container">
     <a href="app/controllers/add_asset.php" class="btn-custom">Add New Asset</a>
+     <!-- <a href="#"  data-page="http://localhost:8080/AMSseml/app/controllers/add_asset.php" class="btn-custom collapse0 collapse-item">Add New Asset</a> -->
     <a href="app/controllers/edit_asset.php" class="btn-custom">Edit Asset</a>
   </div>
 
